@@ -63,14 +63,4 @@ public class MergeSort {
         }
     }
 
-    public static void main(String[] args) {
-        int[] a = { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-        sort(a);
-        // Printing the array to check the result
-        System.out.print("[");
-        for (int i : a) {
-            System.out.print(i + ", ");
-        }
-        System.out.println("]");
-    }
 }
