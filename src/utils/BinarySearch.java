@@ -37,14 +37,5 @@ public class BinarySearch {
             return search(searchThis, mid + 1, rIndex, toSearch);
         }
     }
-
-    public static void main(String[] args) {
-        int[] a = {11, 22, 33, 44, 55, 66};
-        for (int x : a) {
-            search(a, 0, a.length - 1, x);
-            search(a, 0, a.length - 1, x + 1);
-        }
-        String[] b = {"a", "b", "c", "d", "e", "f", "g"};
-        search(b, 0, b.length - 1, "f");
-    }
+    
 }
