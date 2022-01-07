@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ACER
@@ -26,8 +28,41 @@ public class HamroCinema extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        parkingBtnGrp = new javax.swing.ButtonGroup();
+        threeDBtnGrp = new javax.swing.ButtonGroup();
+        mainPanel = new javax.swing.JPanel();
+        headingLbl = new javax.swing.JLabel();
+        threeDChkBox = new javax.swing.JCheckBox();
+        parkingChkBox = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
+        nameLbl = new javax.swing.JLabel();
+        idLbl = new javax.swing.JLabel();
+        addressLbl = new javax.swing.JLabel();
+        contactLbl = new javax.swing.JLabel();
+        idFld = new javax.swing.JTextField();
+        nameFld = new javax.swing.JTextField();
+        addressFld = new javax.swing.JTextField();
+        contactFld = new javax.swing.JTextField();
+        parkingLbl = new javax.swing.JLabel();
+        threedLbl = new javax.swing.JLabel();
+        currencyLbl = new javax.swing.JLabel();
+        ticketPriceLbl = new javax.swing.JLabel();
+        ticketPriceFld = new javax.swing.JTextField();
+        parkingYesRBtn = new javax.swing.JRadioButton();
+        threeDYesRBtn = new javax.swing.JRadioButton();
+        parkingNoRBtn = new javax.swing.JRadioButton();
+        threeDNoRBtn = new javax.swing.JRadioButton();
+        currencyComboBox = new javax.swing.JComboBox<>();
+        addBtn = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+        searchFld = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        filterBtn = new javax.swing.JButton();
+        sortComboBox = new javax.swing.JComboBox<>();
+        sortLbl = new javax.swing.JLabel();
+        mainMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -36,18 +71,281 @@ public class HamroCinema extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 766, Short.MAX_VALUE)
+        headingLbl.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        headingLbl.setText("HamroCinema");
+
+        threeDChkBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        threeDChkBox.setText("3D");
+
+        parkingChkBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        parkingChkBox.setText("Parking");
+
+        table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Cinema ID", "Name", "Address", "Contact", "Parking", "3D Support", "Ticket Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setResizable(false);
+            table.getColumnModel().getColumn(1).setResizable(false);
+            table.getColumnModel().getColumn(2).setResizable(false);
+            table.getColumnModel().getColumn(3).setResizable(false);
+            table.getColumnModel().getColumn(4).setResizable(false);
+            table.getColumnModel().getColumn(5).setResizable(false);
+            table.getColumnModel().getColumn(6).setResizable(false);
+        }
+
+        nameLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nameLbl.setText("Name");
+
+        idLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        idLbl.setText("Cinema ID");
+
+        addressLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addressLbl.setText("Address");
+
+        contactLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        contactLbl.setText("Contact");
+
+        idFld.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        nameFld.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        addressFld.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        contactFld.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        parkingLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        parkingLbl.setText("Parking");
+
+        threedLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        threedLbl.setText("3D Support");
+
+        currencyLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        currencyLbl.setText("Currency");
+
+        ticketPriceLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ticketPriceLbl.setText("Ticket Price");
+
+        ticketPriceFld.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        parkingBtnGrp.add(parkingYesRBtn);
+        parkingYesRBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        parkingYesRBtn.setText("Yes");
+
+        threeDBtnGrp.add(threeDYesRBtn);
+        threeDYesRBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        threeDYesRBtn.setText("Yes");
+
+        parkingBtnGrp.add(parkingNoRBtn);
+        parkingNoRBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        parkingNoRBtn.setText("No");
+
+        threeDBtnGrp.add(threeDNoRBtn);
+        threeDNoRBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        threeDNoRBtn.setText("No");
+
+        currencyComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        currencyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nepali Rupees", "Indian Rupees", "Japanese Yen", "American Dollar", "Great British Pound" }));
+
+        addBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        addBtn.setText("Add");
+
+        updateBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        updateBtn.setText("Update");
+
+        deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        deleteBtn.setText("Delete");
+
+        searchFld.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        filterBtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        filterBtn.setText("Filter");
+        filterBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterBtnActionPerformed(evt);
+            }
+        });
+
+        sortComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sortComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Your Value", "Module Code Ascending", "Module Code Descending" }));
+        sortComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortComboBoxActionPerformed(evt);
+            }
+        });
+
+        sortLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        sortLbl.setText("Sort by:");
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(addBtn)
+                        .addGap(137, 137, 137)
+                        .addComponent(updateBtn)
+                        .addGap(126, 126, 126)
+                        .addComponent(deleteBtn))
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGap(292, 292, 292)
+                            .addComponent(headingLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGap(14, 14, 14)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addGap(12, 12, 12)
+                                    .addComponent(threeDChkBox)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(parkingChkBox)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(filterBtn)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(searchFld, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton1)
+                                    .addGap(15, 15, 15))))
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGap(46, 46, 46)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(contactLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(idLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(addressLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(sortLbl))
+                            .addGap(18, 18, 18)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(sortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(nameFld, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(idFld, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(addressFld, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(contactFld, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                            .addComponent(ticketPriceLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(ticketPriceFld, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(parkingLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(threedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(currencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(26, 26, 26)
+                                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                                    .addComponent(threeDYesRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(threeDNoRBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                                    .addComponent(parkingYesRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(parkingNoRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(currencyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGap(36, 36, 36))))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addComponent(headingLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(threeDChkBox)
+                    .addComponent(parkingChkBox)
+                    .addComponent(searchFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(filterBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sortLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(idLbl)
+                            .addComponent(idFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameLbl)
+                            .addComponent(nameFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addressLbl)
+                            .addComponent(addressFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(contactLbl)
+                            .addComponent(contactFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(parkingLbl)
+                            .addComponent(parkingYesRBtn)
+                            .addComponent(parkingNoRBtn))
+                        .addGap(31, 31, 31)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(threedLbl)
+                            .addComponent(threeDYesRBtn)
+                            .addComponent(threeDNoRBtn))
+                        .addGap(32, 32, 32)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(currencyLbl)
+                            .addComponent(currencyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ticketPriceLbl)
+                            .addComponent(ticketPriceFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
         fileMenu.setText("File");
+        fileMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/openFile.png"))); // NOI18N
@@ -64,25 +362,29 @@ public class HamroCinema extends javax.swing.JFrame {
         });
         fileMenu.add(jMenuItem1);
 
-        jMenuBar1.add(fileMenu);
+        mainMenuBar.add(fileMenu);
 
         searchMenu.setText("Search");
-        jMenuBar1.add(searchMenu);
+        searchMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        mainMenuBar.add(searchMenu);
 
         helpMenu.setText("Help");
-        jMenuBar1.add(helpMenu);
+        helpMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        mainMenuBar.add(helpMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(mainMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,6 +393,73 @@ public class HamroCinema extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void filterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_filterBtnActionPerformed
+
+    private void sortComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBoxActionPerformed
+        int action = sortComboBox.getSelectedIndex();
+
+        if (action == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Please choose acsending or descending sort");
+        } else if (action == 1) {
+            int rowCount = table.getRowCount();
+            int columnCount = table.getColumnCount();
+            String minCodeString, codeString, smallerValue, greaterValue;
+            int minCode, code;
+
+            for (int i = 0; i < rowCount; i++) {
+                minCodeString = (String) table.getValueAt(i, 0);
+                minCode = Integer.parseInt(minCodeString);
+
+                for(int j = 0; j<rowCount; j++) {
+                    codeString = (String) table.getValueAt(j, 0);
+                    code = Integer.parseInt(codeString);
+
+                    if (minCode < code) {
+                        for (int m = 0; m < columnCount; m++) {
+                            smallerValue = (String) table.getValueAt(j, m);
+                            greaterValue = (String) table.getValueAt(i, m);
+                            table.setValueAt(smallerValue, i, m);
+                            table.setValueAt(greaterValue, j, m);
+                        }
+
+                    }
+                }
+            }
+            // less than 0 is ascending. mincode.compare(code)
+        } else if(action == 2) {
+            int rowCount = table.getRowCount();
+            int columnCount = table.getColumnCount();
+            String minCodeString, codeString, smallerValue, greaterValue;
+            int minCode, code;
+
+            for (int i = 0; i < rowCount; i++) {
+                minCodeString = (String) table.getValueAt(i, 0);
+                minCode = Integer.parseInt(minCodeString);
+
+                for(int j = 0; j<rowCount; j++) {
+                    codeString = (String) table.getValueAt(j, 0);
+                    code = Integer.parseInt(codeString);
+
+                    if (minCode > code) {
+                        for (int m = 0; m < columnCount; m++) {
+                            smallerValue = (String) table.getValueAt(j, m);
+                            greaterValue = (String) table.getValueAt(i, m);
+                            table.setValueAt(smallerValue, i, m);
+                            table.setValueAt(greaterValue, j, m);
+                        }
+
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_sortComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,12 +497,45 @@ public class HamroCinema extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
+    private javax.swing.JTextField addressFld;
+    private javax.swing.JLabel addressLbl;
+    private javax.swing.JTextField contactFld;
+    private javax.swing.JLabel contactLbl;
+    private javax.swing.JComboBox<String> currencyComboBox;
+    private javax.swing.JLabel currencyLbl;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JButton filterBtn;
+    private javax.swing.JLabel headingLbl;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JTextField idFld;
+    private javax.swing.JLabel idLbl;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuBar mainMenuBar;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JTextField nameFld;
+    private javax.swing.JLabel nameLbl;
     private javax.swing.JMenuItem openMenuItem;
+    private javax.swing.ButtonGroup parkingBtnGrp;
+    private javax.swing.JCheckBox parkingChkBox;
+    private javax.swing.JLabel parkingLbl;
+    private javax.swing.JRadioButton parkingNoRBtn;
+    private javax.swing.JRadioButton parkingYesRBtn;
+    private javax.swing.JTextField searchFld;
     private javax.swing.JMenu searchMenu;
+    private javax.swing.JComboBox<String> sortComboBox;
+    private javax.swing.JLabel sortLbl;
+    private javax.swing.JTable table;
+    private javax.swing.ButtonGroup threeDBtnGrp;
+    private javax.swing.JCheckBox threeDChkBox;
+    private javax.swing.JRadioButton threeDNoRBtn;
+    private javax.swing.JRadioButton threeDYesRBtn;
+    private javax.swing.JLabel threedLbl;
+    private javax.swing.JTextField ticketPriceFld;
+    private javax.swing.JLabel ticketPriceLbl;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }
