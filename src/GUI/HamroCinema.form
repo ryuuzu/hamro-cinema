@@ -21,9 +21,6 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+O"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/resources/openFile.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Open File"/>
               </Properties>
             </MenuItem>
@@ -31,9 +28,6 @@
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+W"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/resources/closeFile.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Exit "/>
               </Properties>
@@ -306,8 +300,8 @@
                     <Column editable="false" title="Name" type="java.lang.String"/>
                     <Column editable="false" title="Address" type="java.lang.String"/>
                     <Column editable="false" title="Contact" type="java.lang.String"/>
-                    <Column editable="false" title="Parking" type="java.lang.Boolean"/>
-                    <Column editable="false" title="3D Support" type="java.lang.Boolean"/>
+                    <Column editable="false" title="Parking" type="java.lang.String"/>
+                    <Column editable="false" title="3D Support" type="java.lang.String"/>
                     <Column editable="false" title="Ticket Price" type="java.lang.Integer"/>
                   </Table>
                 </Property>
