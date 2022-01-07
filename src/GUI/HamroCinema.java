@@ -66,7 +66,6 @@ public class HamroCinema extends javax.swing.JFrame {
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        searchMenu = new javax.swing.JMenu();
         helpMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -364,10 +363,6 @@ public class HamroCinema extends javax.swing.JFrame {
 
         mainMenuBar.add(fileMenu);
 
-        searchMenu.setText("Search");
-        searchMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        mainMenuBar.add(searchMenu);
-
         helpMenu.setText("Help");
         helpMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         mainMenuBar.add(helpMenu);
@@ -525,7 +520,6 @@ public class HamroCinema extends javax.swing.JFrame {
     private javax.swing.JRadioButton parkingNoRBtn;
     private javax.swing.JRadioButton parkingYesRBtn;
     private javax.swing.JTextField searchFld;
-    private javax.swing.JMenu searchMenu;
     private javax.swing.JComboBox<String> sortComboBox;
     private javax.swing.JLabel sortLbl;
     private javax.swing.JTable table;
