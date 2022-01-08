@@ -72,6 +72,7 @@ public class main_gui extends javax.swing.JFrame {
         ticketPriceFld = new javax.swing.JTextField();
         addBtn = new javax.swing.JButton();
         switchToViewBtn = new javax.swing.JButton();
+        clearBtn = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         editMenu = new javax.swing.JMenu();
@@ -402,6 +403,10 @@ public class main_gui extends javax.swing.JFrame {
         switchToViewBtn.setForeground(new java.awt.Color(51, 51, 51));
         switchToViewBtn.setText("View table");
 
+        clearBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        clearBtn.setForeground(new java.awt.Color(51, 51, 51));
+        clearBtn.setText("Clear");
+
         javax.swing.GroupLayout addPanelLayout = new javax.swing.GroupLayout(addPanel);
         addPanel.setLayout(addPanelLayout);
         addPanelLayout.setHorizontalGroup(
@@ -444,9 +449,11 @@ public class main_gui extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addBtn)
-                .addGap(124, 124, 124)
+                .addGap(74, 74, 74)
+                .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
                 .addComponent(switchToViewBtn)
-                .addGap(283, 283, 283))
+                .addGap(185, 185, 185))
         );
         addPanelLayout.setVerticalGroup(
             addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -481,8 +488,9 @@ public class main_gui extends javax.swing.JFrame {
                 .addGap(75, 75, 75)
                 .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(switchToViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 25, Short.MAX_VALUE))
+                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 85, Short.MAX_VALUE))
         );
 
         mainPanel.add(addPanel, "editcard");
@@ -673,6 +681,7 @@ public class main_gui extends javax.swing.JFrame {
     private javax.swing.JPanel addPanel;
     private javax.swing.JTextField addressFld;
     private javax.swing.JLabel addressLbl;
+    private javax.swing.JButton clearBtn;
     private javax.swing.JTextField contactFld;
     private javax.swing.JLabel contactLbl;
     private javax.swing.JComboBox<String> currencyComboBox;
