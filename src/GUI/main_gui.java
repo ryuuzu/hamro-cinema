@@ -35,7 +35,7 @@ public class main_gui extends javax.swing.JFrame {
         editModeButton = new javax.swing.JButton();
         viewPanel = new javax.swing.JPanel();
         mainHeading1 = new javax.swing.JLabel();
-        editPanel = new javax.swing.JPanel();
+        addPanel = new javax.swing.JPanel();
         mainHeading2 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -130,23 +130,23 @@ public class main_gui extends javax.swing.JFrame {
         mainHeading2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mainHeading2.setText("Hamro Cinema");
 
-        javax.swing.GroupLayout editPanelLayout = new javax.swing.GroupLayout(editPanel);
-        editPanel.setLayout(editPanelLayout);
-        editPanelLayout.setHorizontalGroup(
-            editPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout addPanelLayout = new javax.swing.GroupLayout(addPanel);
+        addPanel.setLayout(addPanelLayout);
+        addPanelLayout.setHorizontalGroup(
+            addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addPanelLayout.createSequentialGroup()
                 .addGap(303, 303, 303)
                 .addComponent(mainHeading2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(327, Short.MAX_VALUE))
         );
-        editPanelLayout.setVerticalGroup(
-            editPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editPanelLayout.createSequentialGroup()
+        addPanelLayout.setVerticalGroup(
+            addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addPanelLayout.createSequentialGroup()
                 .addComponent(mainHeading2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 531, Short.MAX_VALUE))
         );
 
-        mainPanel.add(editPanel, "editcard");
+        mainPanel.add(addPanel, "editcard");
 
         fileMenu.setText("File");
         menuBar.add(fileMenu);
@@ -259,10 +259,10 @@ public class main_gui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel addPanel;
     private javax.swing.JMenu editMenu;
     private javax.swing.JButton editModeButton;
     private javax.swing.JMenuItem editModeMenuItem;
-    private javax.swing.JPanel editPanel;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenuItem homeMenuItem;
     private javax.swing.JPanel indexPanel;
