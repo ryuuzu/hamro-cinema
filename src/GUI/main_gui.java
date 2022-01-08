@@ -6,6 +6,7 @@ package GUI;
 
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -186,9 +187,12 @@ public class main_gui extends javax.swing.JFrame {
         });
 
         table.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        table.setForeground(new java.awt.Color(255, 255, 255));
+        table.setForeground(new java.awt.Color(51, 51, 51));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                { new Integer(101), "Qfx", "Sundhara", "9841752387", "Yes", "Yes",  new Integer(450)},
+                { new Integer(102), "Bigmovies", "Kamalpokhari", "9841236547", "Yes", "No",  new Integer(380)},
+                { new Integer(103), "Fcube", "Chabahil", "9869741258", "No", "Yes",  new Integer(390)},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -201,19 +205,21 @@ public class main_gui extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
         });
         jScrollPane1.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setResizable(false);
+            table.getColumnModel().getColumn(1).setResizable(false);
+            table.getColumnModel().getColumn(2).setResizable(false);
+            table.getColumnModel().getColumn(3).setResizable(false);
+            table.getColumnModel().getColumn(4).setResizable(false);
+            table.getColumnModel().getColumn(5).setResizable(false);
+            table.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         updateBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         updateBtn.setForeground(new java.awt.Color(51, 51, 51));
@@ -240,10 +246,20 @@ public class main_gui extends javax.swing.JFrame {
         deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         deleteBtn.setForeground(new java.awt.Color(51, 51, 51));
         deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
 
         switchToAddBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         switchToAddBtn.setForeground(new java.awt.Color(51, 51, 51));
-        switchToAddBtn.setText("Edit data");
+        switchToAddBtn.setText("Enter data");
+        switchToAddBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                switchToAddBtnActionPerformed(evt);
+            }
+        });
 
         currencyLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         currencyLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -402,6 +418,11 @@ public class main_gui extends javax.swing.JFrame {
         switchToViewBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         switchToViewBtn.setForeground(new java.awt.Color(51, 51, 51));
         switchToViewBtn.setText("View table");
+        switchToViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                switchToViewBtnActionPerformed(evt);
+            }
+        });
 
         clearBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         clearBtn.setForeground(new java.awt.Color(51, 51, 51));
@@ -638,8 +659,37 @@ public class main_gui extends javax.swing.JFrame {
     }//GEN-LAST:event_sortComboBoxActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-        // TODO add your handling code here:
+        String updateField = JOptionPane.showInputDialog("Please enter the field you want to update below");
+        int loop = 1;
+        while(loop == 1) {
+            String fieldCheck = updateField.toLowerCase();
+            if(fieldCheck == "cinema id" || fieldCheck == "name" || fieldCheck == "address" || fieldCheck == "contact" || fieldCheck == "parking" || fieldCheck == "3d support" || fieldCheck == "ticket price" ) {
+                String updateValue = JOptionPane.showInputDialog("Enter new data for" + updateField);
+                for(int i = 0; i<7; i++) {
+                    
+                }
+            } else {
+                updateField = JOptionPane.showInputDialog("Please enter the field you want to update below");
+            }        
+        }
+        
+        
+        
     }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void switchToAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchToAddBtnActionPerformed
+        mainPanelLayout.show(mainPanel,"editcard");
+    }//GEN-LAST:event_switchToAddBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        int activeRow = table.getSelectedRow();
+        DefaultTableModel rowDeletion = (DefaultTableModel) table.getModel();
+        rowDeletion.removeRow(activeRow);
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void switchToViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchToViewBtnActionPerformed
+        mainPanelLayout.show(mainPanel,"viewcard");
+    }//GEN-LAST:event_switchToViewBtnActionPerformed
 
     /**
      * @param args the command line arguments
