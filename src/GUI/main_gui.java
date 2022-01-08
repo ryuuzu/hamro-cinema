@@ -5,6 +5,7 @@
 package GUI;
 
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,6 +29,8 @@ public class main_gui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        parkingBtnGrp = new javax.swing.ButtonGroup();
+        threeDBtnGrp = new javax.swing.ButtonGroup();
         mainPanel = new javax.swing.JPanel();
         indexPanel = new javax.swing.JPanel();
         mainHeading = new javax.swing.JLabel();
@@ -35,8 +38,40 @@ public class main_gui extends javax.swing.JFrame {
         editModeButton = new javax.swing.JButton();
         viewPanel = new javax.swing.JPanel();
         mainHeading1 = new javax.swing.JLabel();
+        threeDChkBox = new javax.swing.JCheckBox();
+        parkingChkBox = new javax.swing.JCheckBox();
+        filterBtn = new javax.swing.JButton();
+        searchFld = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
+        updateBtn = new javax.swing.JButton();
+        sortComboBox = new javax.swing.JComboBox<>();
+        sortLbl = new javax.swing.JLabel();
+        deleteBtn = new javax.swing.JButton();
+        switchToAddBtn = new javax.swing.JButton();
+        currencyLbl = new javax.swing.JLabel();
+        currencyComboBox = new javax.swing.JComboBox<>();
         addPanel = new javax.swing.JPanel();
         mainHeading2 = new javax.swing.JLabel();
+        idLbl = new javax.swing.JLabel();
+        idFld = new javax.swing.JTextField();
+        nameLbl = new javax.swing.JLabel();
+        nameFld = new javax.swing.JTextField();
+        parkingLbl = new javax.swing.JLabel();
+        parkingYesRBtn = new javax.swing.JRadioButton();
+        parkingNoRBtn = new javax.swing.JRadioButton();
+        addressLbl = new javax.swing.JLabel();
+        addressFld = new javax.swing.JTextField();
+        threedLbl = new javax.swing.JLabel();
+        threeDYesRBtn = new javax.swing.JRadioButton();
+        threeDNoRBtn = new javax.swing.JRadioButton();
+        contactLbl = new javax.swing.JLabel();
+        contactFld = new javax.swing.JTextField();
+        ticketPriceLbl = new javax.swing.JLabel();
+        ticketPriceFld = new javax.swing.JTextField();
+        addBtn = new javax.swing.JButton();
+        switchToViewBtn = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         editMenu = new javax.swing.JMenu();
@@ -48,18 +83,25 @@ public class main_gui extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hamro Cinema");
         setName("mainFrame"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(961, 570));
         setResizable(false);
 
         mainPanelLayout = new java.awt.CardLayout();
+        mainPanel.setBackground(new java.awt.Color(51, 51, 51));
         mainPanel.setLayout(new java.awt.CardLayout());
         //Overriding the default layout.
         mainPanel.setLayout(mainPanelLayout);
 
+        indexPanel.setBackground(new java.awt.Color(51, 51, 51));
+        indexPanel.setPreferredSize(new java.awt.Dimension(961, 577));
+
         mainHeading.setFont(new java.awt.Font("Segoe UI Black", 0, 64)); // NOI18N
+        mainHeading.setForeground(new java.awt.Color(255, 255, 255));
         mainHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mainHeading.setText("Hamro Cinema");
 
         viewModeButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        viewModeButton.setForeground(new java.awt.Color(51, 51, 51));
         viewModeButton.setText("View Mode");
         viewModeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +110,7 @@ public class main_gui extends javax.swing.JFrame {
         });
 
         editModeButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        editModeButton.setForeground(new java.awt.Color(51, 51, 51));
         editModeButton.setText("Edit Mode");
         editModeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,70 +123,366 @@ public class main_gui extends javax.swing.JFrame {
         indexPanelLayout.setHorizontalGroup(
             indexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(indexPanelLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(112, 112, 112)
                 .addComponent(viewModeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 333, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(editModeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addGap(121, 121, 121))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, indexPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(194, Short.MAX_VALUE)
                 .addComponent(mainHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(172, 172, 172))
+                .addGap(175, 175, 175))
         );
         indexPanelLayout.setVerticalGroup(
             indexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(indexPanelLayout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addGap(94, 94, 94)
                 .addComponent(mainHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(indexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(viewModeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                    .addComponent(editModeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addGroup(indexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viewModeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editModeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         mainPanel.add(indexPanel, "indexcard");
 
+        viewPanel.setBackground(new java.awt.Color(51, 51, 51));
+        viewPanel.setForeground(new java.awt.Color(255, 255, 255));
+
         mainHeading1.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        mainHeading1.setForeground(new java.awt.Color(255, 255, 255));
         mainHeading1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mainHeading1.setText("Hamro Cinema");
+
+        threeDChkBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        threeDChkBox.setForeground(new java.awt.Color(255, 255, 255));
+        threeDChkBox.setText("3D");
+
+        parkingChkBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        parkingChkBox.setForeground(new java.awt.Color(255, 255, 255));
+        parkingChkBox.setText("Parking");
+
+        filterBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        filterBtn.setForeground(new java.awt.Color(51, 51, 51));
+        filterBtn.setText("Filter");
+        filterBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterBtnActionPerformed(evt);
+            }
+        });
+
+        searchFld.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        searchFld.setForeground(new java.awt.Color(51, 51, 51));
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
+        jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        table.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        table.setForeground(new java.awt.Color(255, 255, 255));
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Cinema ID", "Name", "Address", "Contact", "Parking", "3D Support", "Ticket Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(table);
+
+        updateBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(51, 51, 51));
+        updateBtn.setText("Update");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
+
+        sortComboBox.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        sortComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        sortComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Your Value", "Module Code Ascending", "Module Code Descending" }));
+        sortComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortComboBoxActionPerformed(evt);
+            }
+        });
+
+        sortLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        sortLbl.setForeground(new java.awt.Color(255, 255, 255));
+        sortLbl.setText("Sort by:");
+
+        deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(51, 51, 51));
+        deleteBtn.setText("Delete");
+
+        switchToAddBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        switchToAddBtn.setForeground(new java.awt.Color(51, 51, 51));
+        switchToAddBtn.setText("Edit data");
+
+        currencyLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        currencyLbl.setForeground(new java.awt.Color(255, 255, 255));
+        currencyLbl.setText("Currency");
+
+        currencyComboBox.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        currencyComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        currencyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nepali Rupees", "Indian Rupees", "Japanese Yen", "American Dollar", "Great British Pound" }));
 
         javax.swing.GroupLayout viewPanelLayout = new javax.swing.GroupLayout(viewPanel);
         viewPanel.setLayout(viewPanelLayout);
         viewPanelLayout.setHorizontalGroup(
             viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viewPanelLayout.createSequentialGroup()
-                .addGap(303, 303, 303)
-                .addComponent(mainHeading1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(sortLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(currencyLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(currencyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(searchFld, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(26, 26, 26))
+            .addGroup(viewPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(threeDChkBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(parkingChkBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(filterBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(updateBtn)
+                .addGap(30, 30, 30)
+                .addComponent(deleteBtn)
+                .addGap(29, 29, 29)
+                .addComponent(switchToAddBtn)
+                .addGap(27, 27, 27))
+            .addGroup(viewPanelLayout.createSequentialGroup()
+                .addGroup(viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viewPanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 931, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(viewPanelLayout.createSequentialGroup()
+                        .addGap(313, 313, 313)
+                        .addComponent(mainHeading1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         viewPanelLayout.setVerticalGroup(
             viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viewPanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(mainHeading1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 531, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(sortLbl)
+                    .addComponent(sortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(currencyLbl)
+                    .addComponent(currencyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(switchToAddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(threeDChkBox)
+                        .addComponent(parkingChkBox)
+                        .addComponent(filterBtn)))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
 
         mainPanel.add(viewPanel, "viewcard");
 
+        addPanel.setBackground(new java.awt.Color(51, 51, 51));
+
         mainHeading2.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        mainHeading2.setForeground(new java.awt.Color(255, 255, 255));
         mainHeading2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mainHeading2.setText("Hamro Cinema");
+
+        idLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idLbl.setForeground(new java.awt.Color(255, 255, 255));
+        idLbl.setText("Cinema ID:");
+
+        idFld.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        idFld.setForeground(new java.awt.Color(255, 255, 255));
+
+        nameLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nameLbl.setForeground(new java.awt.Color(255, 255, 255));
+        nameLbl.setText("Name:");
+
+        nameFld.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nameFld.setForeground(new java.awt.Color(255, 255, 255));
+
+        parkingLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        parkingLbl.setForeground(new java.awt.Color(255, 255, 255));
+        parkingLbl.setText("Parking:");
+
+        parkingBtnGrp.add(parkingYesRBtn);
+        parkingYesRBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        parkingYesRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        parkingYesRBtn.setText("Yes");
+
+        parkingBtnGrp.add(parkingNoRBtn);
+        parkingNoRBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        parkingNoRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        parkingNoRBtn.setText("No");
+
+        addressLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        addressLbl.setForeground(new java.awt.Color(255, 255, 255));
+        addressLbl.setText("Address:");
+
+        addressFld.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        addressFld.setForeground(new java.awt.Color(255, 255, 255));
+
+        threedLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        threedLbl.setForeground(new java.awt.Color(255, 255, 255));
+        threedLbl.setText("3D Support:");
+
+        threeDBtnGrp.add(threeDYesRBtn);
+        threeDYesRBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        threeDYesRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        threeDYesRBtn.setText("Yes");
+
+        threeDBtnGrp.add(threeDNoRBtn);
+        threeDNoRBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        threeDNoRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        threeDNoRBtn.setText("No");
+
+        contactLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        contactLbl.setForeground(new java.awt.Color(255, 255, 255));
+        contactLbl.setText("Contact:");
+
+        contactFld.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        contactFld.setForeground(new java.awt.Color(255, 255, 255));
+
+        ticketPriceLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ticketPriceLbl.setForeground(new java.awt.Color(255, 255, 255));
+        ticketPriceLbl.setText("Ticket Price:");
+
+        ticketPriceFld.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ticketPriceFld.setForeground(new java.awt.Color(255, 255, 255));
+
+        addBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        addBtn.setForeground(new java.awt.Color(51, 51, 51));
+        addBtn.setText("Add Data");
+
+        switchToViewBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        switchToViewBtn.setForeground(new java.awt.Color(51, 51, 51));
+        switchToViewBtn.setText("View table");
 
         javax.swing.GroupLayout addPanelLayout = new javax.swing.GroupLayout(addPanel);
         addPanel.setLayout(addPanelLayout);
         addPanelLayout.setHorizontalGroup(
             addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addPanelLayout.createSequentialGroup()
-                .addGap(303, 303, 303)
+                .addGap(53, 53, 53)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(idLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(contactLbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addressLbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(addressFld, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                    .addComponent(idFld, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameFld, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contactFld))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(parkingLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(threedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ticketPriceLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(addPanelLayout.createSequentialGroup()
+                        .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(parkingYesRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(threeDYesRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(parkingNoRBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                            .addComponent(threeDNoRBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(ticketPriceFld))
+                .addGap(76, 76, 76))
+            .addGroup(addPanelLayout.createSequentialGroup()
+                .addGap(310, 310, 310)
                 .addComponent(mainHeading2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addBtn)
+                .addGap(124, 124, 124)
+                .addComponent(switchToViewBtn)
+                .addGap(283, 283, 283))
         );
         addPanelLayout.setVerticalGroup(
             addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(mainHeading2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 531, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLbl)
+                    .addComponent(idFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameLbl)
+                    .addComponent(nameFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(parkingLbl)
+                    .addComponent(parkingYesRBtn)
+                    .addComponent(parkingNoRBtn))
+                .addGap(29, 29, 29)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addressLbl)
+                    .addComponent(addressFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(threedLbl)
+                    .addComponent(threeDYesRBtn)
+                    .addComponent(threeDNoRBtn))
+                .addGap(39, 39, 39)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(contactLbl)
+                    .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(contactFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ticketPriceLbl)
+                        .addComponent(ticketPriceFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(75, 75, 75)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(switchToViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
 
         mainPanel.add(addPanel, "editcard");
@@ -192,7 +531,7 @@ public class main_gui extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
         );
 
         pack();
@@ -222,6 +561,77 @@ public class main_gui extends javax.swing.JFrame {
         // TODO add your handling code here:
         mainPanelLayout.show(mainPanel, "editcard");
     }//GEN-LAST:event_editModeMenuItemActionPerformed
+
+    private void filterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_filterBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void sortComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBoxActionPerformed
+        int action = sortComboBox.getSelectedIndex();
+
+        if (action == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Please choose acsending or descending sort");
+        } else if (action == 1) {
+            int rowCount = table.getRowCount();
+            int columnCount = table.getColumnCount();
+            String minCodeString, codeString, smallerValue, greaterValue;
+            int minCode, code;
+
+            for (int i = 0; i < rowCount; i++) {
+                minCodeString = (String) table.getValueAt(i, 0);
+                minCode = Integer.parseInt(minCodeString);
+
+                for(int j = 0; j<rowCount; j++) {
+                    codeString = (String) table.getValueAt(j, 0);
+                    code = Integer.parseInt(codeString);
+
+                    if (minCode < code) {
+                        for (int m = 0; m < columnCount; m++) {
+                            smallerValue = (String) table.getValueAt(j, m);
+                            greaterValue = (String) table.getValueAt(i, m);
+                            table.setValueAt(smallerValue, i, m);
+                            table.setValueAt(greaterValue, j, m);
+                        }
+
+                    }
+                }
+            }
+            // less than 0 is ascending. mincode.compare(code)
+        } else if(action == 2) {
+            int rowCount = table.getRowCount();
+            int columnCount = table.getColumnCount();
+            String minCodeString, codeString, smallerValue, greaterValue;
+            int minCode, code;
+
+            for (int i = 0; i < rowCount; i++) {
+                minCodeString = (String) table.getValueAt(i, 0);
+                minCode = Integer.parseInt(minCodeString);
+
+                for(int j = 0; j<rowCount; j++) {
+                    codeString = (String) table.getValueAt(j, 0);
+                    code = Integer.parseInt(codeString);
+
+                    if (minCode > code) {
+                        for (int m = 0; m < columnCount; m++) {
+                            smallerValue = (String) table.getValueAt(j, m);
+                            greaterValue = (String) table.getValueAt(i, m);
+                            table.setValueAt(smallerValue, i, m);
+                            table.setValueAt(greaterValue, j, m);
+                        }
+
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_sortComboBoxActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,19 +669,53 @@ public class main_gui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
     private javax.swing.JPanel addPanel;
+    private javax.swing.JTextField addressFld;
+    private javax.swing.JLabel addressLbl;
+    private javax.swing.JTextField contactFld;
+    private javax.swing.JLabel contactLbl;
+    private javax.swing.JComboBox<String> currencyComboBox;
+    private javax.swing.JLabel currencyLbl;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JMenu editMenu;
     private javax.swing.JButton editModeButton;
     private javax.swing.JMenuItem editModeMenuItem;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JButton filterBtn;
     private javax.swing.JMenuItem homeMenuItem;
+    private javax.swing.JTextField idFld;
+    private javax.swing.JLabel idLbl;
     private javax.swing.JPanel indexPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel mainHeading;
     private javax.swing.JLabel mainHeading1;
     private javax.swing.JLabel mainHeading2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JTextField nameFld;
+    private javax.swing.JLabel nameLbl;
     private javax.swing.JMenu navigateMenu;
+    private javax.swing.ButtonGroup parkingBtnGrp;
+    private javax.swing.JCheckBox parkingChkBox;
+    private javax.swing.JLabel parkingLbl;
+    private javax.swing.JRadioButton parkingNoRBtn;
+    private javax.swing.JRadioButton parkingYesRBtn;
+    private javax.swing.JTextField searchFld;
+    private javax.swing.JComboBox<String> sortComboBox;
+    private javax.swing.JLabel sortLbl;
+    private javax.swing.JButton switchToAddBtn;
+    private javax.swing.JButton switchToViewBtn;
+    private javax.swing.JTable table;
+    private javax.swing.ButtonGroup threeDBtnGrp;
+    private javax.swing.JCheckBox threeDChkBox;
+    private javax.swing.JRadioButton threeDNoRBtn;
+    private javax.swing.JRadioButton threeDYesRBtn;
+    private javax.swing.JLabel threedLbl;
+    private javax.swing.JTextField ticketPriceFld;
+    private javax.swing.JLabel ticketPriceLbl;
+    private javax.swing.JButton updateBtn;
     private javax.swing.JButton viewModeButton;
     private javax.swing.JMenuItem viewModeMenuItem;
     private javax.swing.JPanel viewPanel;
