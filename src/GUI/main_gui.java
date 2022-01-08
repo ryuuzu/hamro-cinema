@@ -34,7 +34,9 @@ public class main_gui extends javax.swing.JFrame {
         viewModeButton = new javax.swing.JButton();
         editModeButton = new javax.swing.JButton();
         viewPanel = new javax.swing.JPanel();
+        mainHeading1 = new javax.swing.JLabel();
         editPanel = new javax.swing.JPanel();
+        mainHeading2 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         editMenu = new javax.swing.JMenu();
@@ -102,28 +104,46 @@ public class main_gui extends javax.swing.JFrame {
 
         mainPanel.add(indexPanel, "indexcard");
 
+        mainHeading1.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        mainHeading1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mainHeading1.setText("Hamro Cinema");
+
         javax.swing.GroupLayout viewPanelLayout = new javax.swing.GroupLayout(viewPanel);
         viewPanel.setLayout(viewPanelLayout);
         viewPanelLayout.setHorizontalGroup(
             viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 961, Short.MAX_VALUE)
+            .addGroup(viewPanelLayout.createSequentialGroup()
+                .addGap(303, 303, 303)
+                .addComponent(mainHeading1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(327, Short.MAX_VALUE))
         );
         viewPanelLayout.setVerticalGroup(
             viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
+            .addGroup(viewPanelLayout.createSequentialGroup()
+                .addComponent(mainHeading1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 531, Short.MAX_VALUE))
         );
 
         mainPanel.add(viewPanel, "viewcard");
+
+        mainHeading2.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        mainHeading2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mainHeading2.setText("Hamro Cinema");
 
         javax.swing.GroupLayout editPanelLayout = new javax.swing.GroupLayout(editPanel);
         editPanel.setLayout(editPanelLayout);
         editPanelLayout.setHorizontalGroup(
             editPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 961, Short.MAX_VALUE)
+            .addGroup(editPanelLayout.createSequentialGroup()
+                .addGap(303, 303, 303)
+                .addComponent(mainHeading2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(327, Short.MAX_VALUE))
         );
         editPanelLayout.setVerticalGroup(
             editPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
+            .addGroup(editPanelLayout.createSequentialGroup()
+                .addComponent(mainHeading2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 531, Short.MAX_VALUE))
         );
 
         mainPanel.add(editPanel, "editcard");
@@ -247,6 +267,8 @@ public class main_gui extends javax.swing.JFrame {
     private javax.swing.JMenuItem homeMenuItem;
     private javax.swing.JPanel indexPanel;
     private javax.swing.JLabel mainHeading;
+    private javax.swing.JLabel mainHeading1;
+    private javax.swing.JLabel mainHeading2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu navigateMenu;
