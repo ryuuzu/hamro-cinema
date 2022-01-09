@@ -659,22 +659,33 @@ public class main_gui extends javax.swing.JFrame {
     }//GEN-LAST:event_sortComboBoxActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-        String updateField = JOptionPane.showInputDialog("Please enter the field you want to update below");
-        int loop = 1;
-        while(loop == 1) {
-            String fieldCheck = updateField.toLowerCase();
-            if(fieldCheck == "cinema id" || fieldCheck == "name" || fieldCheck == "address" || fieldCheck == "contact" || fieldCheck == "parking" || fieldCheck == "3d support" || fieldCheck == "ticket price" ) {
-                String updateValue = JOptionPane.showInputDialog("Enter new data for" + updateField);
-                for(int i = 0; i<7; i++) {
-                    
-                }
-            } else {
-                updateField = JOptionPane.showInputDialog("Please enter the field you want to update below");
-            }        
+        int activeRow = table.getSelectedRow();
+        if (activeRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row to update");
+            return;
         }
         
-        
-        
+        String updateField, check;
+        while(true) {
+            updateField = JOptionPane.showInputDialog("Please enter the field you want to update below");
+            String fieldCheck = updateField.toLowerCase();
+            if("cinema id".equals(fieldCheck) || "name".equals(fieldCheck) || "address".equals(fieldCheck) || "contact".equals(fieldCheck) || "parking".equals(fieldCheck) || "3d support".equals(fieldCheck) || "ticket price".equals(fieldCheck)) {
+                String updateValue = JOptionPane.showInputDialog("Enter new data for " + updateField);
+                DefaultTableModel rowUpdate = (DefaultTableModel) table.getModel();
+                for(int i = 0; i<7; i++) {
+                    String header = table.getColumnName(i);
+                    if(fieldCheck.equals(header.toLowerCase())) {
+                        rowUpdate.setValueAt(updateValue, activeRow, i);
+                        check = JOptionPane.showInputDialog("Do you want to update more fields? (Y/N)");
+                        if ("n".equals(check.toLowerCase())) {
+                            return;
+                        }
+                    }
+                }
+            } else {
+                updateField = JOptionPane.showInputDialog("Please make sure to enter the correct spelling. You can refer to column headers");
+            }        
+        }
     }//GEN-LAST:event_updateBtnActionPerformed
 
     private void switchToAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchToAddBtnActionPerformed
