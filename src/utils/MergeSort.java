@@ -62,7 +62,7 @@ public class MergeSort {
 
         // Adding values to the sortThis from group1 and group2
         while (group1_index < group1.size() && group2_index < group2.size()) {
-            if ((int) group1.get(group1_index)[6] < (int) group2.get(group2_index)[6]) {
+            if ((float) group1.get(group1_index)[6] < (float) group2.get(group2_index)[6]) {
                 sortThis.set(sortThis_index, group1.get(group1_index));
                 group1_index++;
             } else {

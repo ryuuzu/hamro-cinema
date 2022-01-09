@@ -426,10 +426,10 @@
                           <Data value="No"/>
                           <Data value="Yes"/>
                         </Column>
-                        <Column editable="false" title="Ticket Price" type="java.lang.Integer">
-                          <Data value="490"/>
-                          <Data value="380"/>
-                          <Data value="500"/>
+                        <Column editable="false" title="Ticket Price" type="java.lang.Float">
+                          <Data value="390.0"/>
+                          <Data value="425.0"/>
+                          <Data value="700.0"/>
                         </Column>
                       </Table>
                     </Property>
@@ -578,10 +578,10 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
                     <StringItem index="0" value="Nepali Rupees"/>
-                    <StringItem index="1" value="Indian Rupees"/>
+                    <StringItem index="1" value="Great British Pound"/>
                     <StringItem index="2" value="Japanese Yen"/>
-                    <StringItem index="3" value="American Dollar"/>
-                    <StringItem index="4" value="Great British Pound"/>
+                    <StringItem index="3" value="Australian Dollar"/>
+                    <StringItem index="4" value="Indonesian Rupiah"/>
                   </StringArray>
                 </Property>
               </Properties>
