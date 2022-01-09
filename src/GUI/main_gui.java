@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import utils.MergeSort;
+import utils.BinarySearch;
 
 /**
  *
@@ -87,7 +88,6 @@ public class main_gui extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hamro Cinema");
         setName("mainFrame"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(961, 570));
         setResizable(false);
 
         mainPanelLayout = new java.awt.CardLayout();
@@ -341,7 +341,7 @@ public class main_gui extends javax.swing.JFrame {
                         .addComponent(threeDChkBox)
                         .addComponent(parkingChkBox)
                         .addComponent(filterBtn)))
-                .addGap(0, 78, Short.MAX_VALUE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
 
         mainPanel.add(viewPanel, "viewcard");
@@ -521,7 +521,7 @@ public class main_gui extends javax.swing.JFrame {
                     .addComponent(switchToViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 91, Short.MAX_VALUE))
+                .addGap(0, 19, Short.MAX_VALUE))
         );
 
         mainPanel.add(addPanel, "editcard");
@@ -606,7 +606,25 @@ public class main_gui extends javax.swing.JFrame {
     }//GEN-LAST:event_filterBtnActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        // TODO add your handling code here:
+        int rowCount = table.getRowCount();
+        ArrayList tableData = getTableData();
+        int[] idArray = new int[rowCount];
+        System.out.println(idArray);
+        Object[] nameArray = new Object[rowCount];
+        Object[] contactArray = new Object[rowCount];
+        Object[] addressArray = new Object[rowCount];
+        Object[] ticketPriceArray = new Object[rowCount];
+        String searchedData = searchFld.getText();
+        for(int i = 0; i < rowCount; i++) {
+            idArray[i] = (int) tableData.get(i)[0];
+            nameArray[i] = tableData.get(i)[1];
+            addressArray[i] = tableData.get(i)[2];
+            contactArray[i] = tableData.get(i)[3];            
+            ticketPriceArray[i] = tableData.get(i)[6];
+            i++;
+        }
+        MergeSort.sort(idArray);
+        int index = BinarySearch.search(idArray, 0, idArray.length - 1, Integer.parseInt(searchedData));
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void sortComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBoxActionPerformed
@@ -633,17 +651,17 @@ public class main_gui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please select a row to update");
             return;
         }
-        
+
         String updateField, check;
-        while(true) {
+        while (true) {
             updateField = JOptionPane.showInputDialog("Please enter the field you want to update below");
             String fieldCheck = updateField.toLowerCase();
-            if("cinema id".equals(fieldCheck) || "name".equals(fieldCheck) || "address".equals(fieldCheck) || "contact".equals(fieldCheck) || "parking".equals(fieldCheck) || "3d support".equals(fieldCheck) || "ticket price".equals(fieldCheck)) {
+            if ("cinema id".equals(fieldCheck) || "name".equals(fieldCheck) || "address".equals(fieldCheck) || "contact".equals(fieldCheck) || "parking".equals(fieldCheck) || "3d support".equals(fieldCheck) || "ticket price".equals(fieldCheck)) {
                 String updateValue = JOptionPane.showInputDialog("Enter new data for " + updateField);
                 DefaultTableModel rowUpdate = (DefaultTableModel) table.getModel();
-                for(int i = 0; i<7; i++) {
+                for (int i = 0; i < 7; i++) {
                     String header = table.getColumnName(i);
-                    if(fieldCheck.equals(header.toLowerCase())) {
+                    if (fieldCheck.equals(header.toLowerCase())) {
                         rowUpdate.setValueAt(updateValue, activeRow, i);
                         check = JOptionPane.showInputDialog("Do you want to update more fields? (Y/N)");
                         if ("n".equals(check.toLowerCase())) {
@@ -653,7 +671,7 @@ public class main_gui extends javax.swing.JFrame {
                 }
             } else {
                 updateField = JOptionPane.showInputDialog("Please make sure to enter the correct spelling. You can refer to column headers");
-            }        
+            }
         }
     }//GEN-LAST:event_updateBtnActionPerformed
 
