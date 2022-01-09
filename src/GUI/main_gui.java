@@ -192,9 +192,21 @@ public class main_gui extends javax.swing.JFrame {
         table.setForeground(new java.awt.Color(51, 51, 51));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                { new Integer(101), "Bigmovies", "Kamalpokhari", null, "Yes", "No",  new Float(380.0)},
                 { new Integer(100), "Qfx", "Sundhara", null, "Yes", "Yes",  new Float(450.0)},
-                { new Integer(102), "Fcube", "Chabahil", null, "No", "Yes",  new Float(390.0)}
+                { new Integer(101), "Bigmovies", "Kamalpokhari", null, "Yes", "No",  new Float(380.0)},
+                { new Integer(102), "Fcube", "Chabahil", null, "No", "Yes",  new Float(390.0)},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
                 "Cinema ID", "Name", "Address", "Contact", "Parking", "3D Support", "Ticket Price"
@@ -724,7 +736,7 @@ public class main_gui extends javax.swing.JFrame {
     }//GEN-LAST:event_switchToViewBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        int id, contact, rowCount, colCount, nextRow;
+        int id, contact;
         float price;
         boolean emptyRow = false;
         
@@ -739,9 +751,9 @@ public class main_gui extends javax.swing.JFrame {
                 if (data[i] == null || data[i].length() == 0) {
                     JOptionPane.showMessageDialog(rootPane, "Please enter string or numerical value accoring to the field.", "Null Value Found!", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    rowCount = table.getRowCount();
-                    colCount = table.getColumnCount();
-                    nextRow = 0;
+                    int rowCount = table.getRowCount();
+                    int colCount = table.getColumnCount();
+                    int nextRow = 0;
                     String checkID, checkName;
 
                     do {
@@ -891,6 +903,8 @@ public class main_gui extends javax.swing.JFrame {
     private javax.swing.JTextField idFld;
     private javax.swing.JLabel idLbl;
     private javax.swing.JPanel indexPanel;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel mainHeading;
     private javax.swing.JLabel mainHeading1;
