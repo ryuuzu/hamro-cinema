@@ -192,16 +192,16 @@ public class main_gui extends javax.swing.JFrame {
         table.setForeground(new java.awt.Color(51, 51, 51));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                { new Integer(101), "Bigmovies", "Kamalpokhari", "9841236547", "Yes", "No",  new Float(380.0)},
-                { new Integer(100), "Qfx", "Sundhara", "9841752387", "Yes", "Yes",  new Float(450.0)},
-                { new Integer(102), "Fcube", "Chabahil", "9869741258", "No", "Yes",  new Float(390.0)}
+                { new Integer(101), "Bigmovies", "Kamalpokhari", null, "Yes", "No",  new Float(380.0)},
+                { new Integer(100), "Qfx", "Sundhara", null, "Yes", "Yes",  new Float(450.0)},
+                { new Integer(102), "Fcube", "Chabahil", null, "No", "Yes",  new Float(390.0)}
             },
             new String [] {
                 "Cinema ID", "Name", "Address", "Contact", "Parking", "3D Support", "Ticket Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false
@@ -273,6 +273,11 @@ public class main_gui extends javax.swing.JFrame {
         currencyComboBox.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         currencyComboBox.setForeground(new java.awt.Color(255, 255, 255));
         currencyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nepali Rupees", "Indian Rupees", "Japanese Yen", "American Dollar", "Great British Pound" }));
+        currencyComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                currencyComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout viewPanelLayout = new javax.swing.GroupLayout(viewPanel);
         viewPanel.setLayout(viewPanelLayout);
@@ -341,7 +346,7 @@ public class main_gui extends javax.swing.JFrame {
                         .addComponent(threeDChkBox)
                         .addComponent(parkingChkBox)
                         .addComponent(filterBtn)))
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addGap(0, 78, Short.MAX_VALUE))
         );
 
         mainPanel.add(viewPanel, "viewcard");
@@ -358,14 +363,14 @@ public class main_gui extends javax.swing.JFrame {
         idLbl.setText("Cinema ID:");
 
         idFld.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idFld.setForeground(new java.awt.Color(255, 255, 255));
+        idFld.setForeground(new java.awt.Color(51, 51, 51));
 
         nameLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         nameLbl.setForeground(new java.awt.Color(255, 255, 255));
         nameLbl.setText("Name:");
 
         nameFld.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nameFld.setForeground(new java.awt.Color(255, 255, 255));
+        nameFld.setForeground(new java.awt.Color(51, 51, 51));
 
         parkingLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         parkingLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -386,7 +391,7 @@ public class main_gui extends javax.swing.JFrame {
         addressLbl.setText("Address:");
 
         addressFld.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        addressFld.setForeground(new java.awt.Color(255, 255, 255));
+        addressFld.setForeground(new java.awt.Color(51, 51, 51));
 
         threedLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         threedLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -407,14 +412,14 @@ public class main_gui extends javax.swing.JFrame {
         contactLbl.setText("Contact:");
 
         contactFld.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        contactFld.setForeground(new java.awt.Color(255, 255, 255));
+        contactFld.setForeground(new java.awt.Color(51, 51, 51));
 
         ticketPriceLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ticketPriceLbl.setForeground(new java.awt.Color(255, 255, 255));
         ticketPriceLbl.setText("Ticket Price:");
 
         ticketPriceFld.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ticketPriceFld.setForeground(new java.awt.Color(255, 255, 255));
+        ticketPriceFld.setForeground(new java.awt.Color(51, 51, 51));
 
         addBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         addBtn.setForeground(new java.awt.Color(51, 51, 51));
@@ -437,6 +442,11 @@ public class main_gui extends javax.swing.JFrame {
         clearBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         clearBtn.setForeground(new java.awt.Color(51, 51, 51));
         clearBtn.setText("Clear");
+        clearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout addPanelLayout = new javax.swing.GroupLayout(addPanel);
         addPanel.setLayout(addPanelLayout);
@@ -521,7 +531,7 @@ public class main_gui extends javax.swing.JFrame {
                     .addComponent(switchToViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 91, Short.MAX_VALUE))
         );
 
         mainPanel.add(addPanel, "editcard");
@@ -607,9 +617,8 @@ public class main_gui extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         int rowCount = table.getRowCount();
-        ArrayList tableData = getTableData();
+        ArrayList<Object[]> tableData = getTableData();
         int[] idArray = new int[rowCount];
-        System.out.println(idArray);
         Object[] nameArray = new Object[rowCount];
         Object[] contactArray = new Object[rowCount];
         Object[] addressArray = new Object[rowCount];
@@ -625,6 +634,7 @@ public class main_gui extends javax.swing.JFrame {
         }
         MergeSort.sort(idArray);
         int index = BinarySearch.search(idArray, 0, idArray.length - 1, Integer.parseInt(searchedData));
+        System.out.println(index);
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void sortComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBoxActionPerformed
@@ -657,12 +667,36 @@ public class main_gui extends javax.swing.JFrame {
             updateField = JOptionPane.showInputDialog("Please enter the field you want to update below");
             String fieldCheck = updateField.toLowerCase();
             if ("cinema id".equals(fieldCheck) || "name".equals(fieldCheck) || "address".equals(fieldCheck) || "contact".equals(fieldCheck) || "parking".equals(fieldCheck) || "3d support".equals(fieldCheck) || "ticket price".equals(fieldCheck)) {
-                String updateValue = JOptionPane.showInputDialog("Enter new data for " + updateField);
+                String updateValue = JOptionPane.showInputDialog("Enter new data for " + updateField.toUpperCase());
+                
+                if (updateValue == null && updateValue.length() == 0) {
+                    JOptionPane.showMessageDialog(rootPane, "Field cannot be empty!");
+                    return;
+                }
+                
                 DefaultTableModel rowUpdate = (DefaultTableModel) table.getModel();
                 for (int i = 0; i < 7; i++) {
                     String header = table.getColumnName(i);
+                    
                     if (fieldCheck.equals(header.toLowerCase())) {
-                        rowUpdate.setValueAt(updateValue, activeRow, i);
+                        try {
+                            if(i == 0) {
+                                int cinemaID = Integer.parseInt(updateValue);
+                                rowUpdate.setValueAt(cinemaID, activeRow, i);
+                            } else if (i == 3) {
+                                int contact = Integer.parseInt(updateValue);
+                                rowUpdate.setValueAt(contact, activeRow, i);
+                            } else if (i == 6) {
+                                float ticketPrice = Float.parseFloat(updateValue);
+                                rowUpdate.setValueAt(ticketPrice, activeRow, i);
+                            } else {
+                                rowUpdate.setValueAt(updateValue, activeRow, i);
+                            }                   
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(rootPane, "Cinema ID, Contact and Ticket Price take numerical values!", "Wrong Input!", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+                        
                         check = JOptionPane.showInputDialog("Do you want to update more fields? (Y/N)");
                         if ("n".equals(check.toLowerCase())) {
                             return;
@@ -670,7 +704,7 @@ public class main_gui extends javax.swing.JFrame {
                     }
                 }
             } else {
-                updateField = JOptionPane.showInputDialog("Please make sure to enter the correct spelling. You can refer to column headers");
+                JOptionPane.showMessageDialog(rootPane, "Please make sure to enter the correct spelling. You can refer to column headers");
             }
         }
     }//GEN-LAST:event_updateBtnActionPerformed
@@ -690,8 +724,87 @@ public class main_gui extends javax.swing.JFrame {
     }//GEN-LAST:event_switchToViewBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        // TODO add your handling code here:
+        int id, contact, rowCount, colCount, nextRow;
+        float price;
+        boolean emptyRow = false;
+        
+        try {
+            id = Integer.parseInt(idFld.getText());
+            contact = Integer.parseInt(contactFld.getText());
+            price = Float.parseFloat(ticketPriceFld.getText());
+            
+            String[] data = {idFld.getText(), nameFld.getText(), addressFld.getText(), contactFld.getText(), ticketPriceFld.getText()};
+            DefaultTableModel newEntry = (DefaultTableModel) table.getModel();            
+            for (int i = 0; i < 5; i++) {
+                if (data[i] == null || data[i].length() == 0) {
+                    JOptionPane.showMessageDialog(rootPane, "Please enter string or numerical value accoring to the field.", "Null Value Found!", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    rowCount = table.getRowCount();
+                    colCount = table.getColumnCount();
+                    nextRow = 0;
+                    String checkID, checkName;
+
+                    do {
+                        checkID = (String) table.getValueAt(nextRow, 0);
+                        if (checkID != null && checkID.length() != 0) {
+                            checkName = (String) table.getValueAt(nextRow, 1);
+                            if (data[0].equals(checkID) || data[1].equals(checkName)) {
+                                JOptionPane.showMessageDialog(rootPane, "Cinema ID and name must be unique. Please enter a unique value!", "Duplicate Entry Found!", JOptionPane.ERROR_MESSAGE);
+                                return;
+                            } else {
+                                nextRow++;
+                            }
+                        } else {
+                            emptyRow = true;
+                        }
+                    } while (nextRow < rowCount && !emptyRow);
+
+                    if (nextRow < rowCount) {
+                        for (int j = 0; j < 4; j++) {
+                            newEntry.setValueAt(data[j], nextRow, j);
+                        }
+                        if (parkingYesRBtn.isSelected() == true) {
+                            newEntry.setValueAt("Yes", nextRow, 4);
+                        } else {
+                            newEntry.setValueAt("No", nextRow, 4);
+                        }
+                        
+                        if (threeDYesRBtn.isSelected() == true) {
+                            newEntry.setValueAt("Yes", nextRow, 5);
+                        } else {
+                            newEntry.setValueAt("No", nextRow, 5);
+                        }
+                        newEntry.setValueAt(data[4], nextRow, 6);
+                        
+                    } 
+                    /** ROW COUNT SAKE PAXI KO LAGI FERI RESOLVE GARNA PARXA*/
+                    else {
+                        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+                        tableModel.addRow(data);
+                    }            
+                    
+                }           
+            }
+        } catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, "Cinema ID, contact an ticket price take numerical value. Please enter accordingly", "Invalid Input Found!", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_addBtnActionPerformed
+
+    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+        idFld.setText("");
+        nameFld.setText("");
+        addressFld.setText("");
+        contactFld.setText("");
+        ticketPriceFld.setText("");
+        parkingYesRBtn.setSelected(false);
+        parkingNoRBtn.setSelected(false);
+        threeDYesRBtn.setSelected(false);
+        threeDNoRBtn.setSelected(false);
+    }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void currencyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currencyComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_currencyComboBoxActionPerformed
 
     private void putInTable(ArrayList<Object[]> arrayToInsert) {
         int rowCount = table.getRowCount();
