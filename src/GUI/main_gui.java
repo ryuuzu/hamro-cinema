@@ -4,7 +4,6 @@
  */
 package GUI;
 
-import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
@@ -17,6 +16,7 @@ import utils.BinarySearch;
  */
 public class main_gui extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form main_gui
      */
@@ -79,6 +79,8 @@ public class main_gui extends javax.swing.JFrame {
         clearBtn = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         navigateMenu = new javax.swing.JMenu();
         homeMenuItem = new javax.swing.JMenuItem();
@@ -133,7 +135,7 @@ public class main_gui extends javax.swing.JFrame {
                 .addComponent(editModeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(121, 121, 121))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, indexPanelLayout.createSequentialGroup()
-                .addContainerGap(194, Short.MAX_VALUE)
+                .addContainerGap(184, Short.MAX_VALUE)
                 .addComponent(mainHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(175, 175, 175))
         );
@@ -146,7 +148,7 @@ public class main_gui extends javax.swing.JFrame {
                 .addGroup(indexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewModeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editModeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         mainPanel.add(indexPanel, "indexcard");
@@ -192,28 +194,16 @@ public class main_gui extends javax.swing.JFrame {
         table.setForeground(new java.awt.Color(51, 51, 51));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                { new Integer(100), "Qfx", "Sundhara", null, "Yes", "Yes",  new Float(450.0)},
-                { new Integer(101), "Bigmovies", "Kamalpokhari", null, "Yes", "No",  new Float(380.0)},
-                { new Integer(102), "Fcube", "Chabahil", null, "No", "Yes",  new Float(390.0)},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                { new Integer(100), "Qfx", "Sundhara", "9851452245", "Yes", "Yes",  new Integer(490)},
+                { new Integer(101), "Bigmovies", "Kamalpokhari", "9869342159", "Yes", "No",  new Integer(380)},
+                { new Integer(102), "Fcube", "Chabahil", "9800898742", "No", "Yes",  new Integer(500)}
             },
             new String [] {
                 "Cinema ID", "Name", "Address", "Contact", "Parking", "3D Support", "Ticket Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false
@@ -227,6 +217,7 @@ public class main_gui extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        table.setRowHeight(25);
         jScrollPane1.setViewportView(table);
         if (table.getColumnModel().getColumnCount() > 0) {
             table.getColumnModel().getColumn(0).setResizable(false);
@@ -249,7 +240,7 @@ public class main_gui extends javax.swing.JFrame {
 
         sortComboBox.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         sortComboBox.setForeground(new java.awt.Color(255, 255, 255));
-        sortComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Your Value", "Cinema ID Ascending", "Cinema ID Descending" }));
+        sortComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Your Value", "Ticket Price Ascending", "Ticket Price Descending" }));
         sortComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortComboBoxActionPerformed(evt);
@@ -331,7 +322,7 @@ public class main_gui extends javax.swing.JFrame {
                     .addGroup(viewPanelLayout.createSequentialGroup()
                         .addGap(313, 313, 313)
                         .addComponent(mainHeading1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         viewPanelLayout.setVerticalGroup(
             viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,7 +349,7 @@ public class main_gui extends javax.swing.JFrame {
                         .addComponent(threeDChkBox)
                         .addComponent(parkingChkBox)
                         .addComponent(filterBtn)))
-                .addGap(0, 78, Short.MAX_VALUE))
+                .addGap(0, 19, Short.MAX_VALUE))
         );
 
         mainPanel.add(viewPanel, "viewcard");
@@ -392,11 +383,14 @@ public class main_gui extends javax.swing.JFrame {
         parkingYesRBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         parkingYesRBtn.setForeground(new java.awt.Color(255, 255, 255));
         parkingYesRBtn.setText("Yes");
+        parkingYesRBtn.setActionCommand("Yes");
 
         parkingBtnGrp.add(parkingNoRBtn);
         parkingNoRBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         parkingNoRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        parkingNoRBtn.setSelected(true);
         parkingNoRBtn.setText("No");
+        parkingNoRBtn.setActionCommand("No");
 
         addressLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         addressLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -413,11 +407,14 @@ public class main_gui extends javax.swing.JFrame {
         threeDYesRBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         threeDYesRBtn.setForeground(new java.awt.Color(255, 255, 255));
         threeDYesRBtn.setText("Yes");
+        threeDYesRBtn.setActionCommand("Yes");
 
         threeDBtnGrp.add(threeDNoRBtn);
         threeDNoRBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         threeDNoRBtn.setForeground(new java.awt.Color(255, 255, 255));
+        threeDNoRBtn.setSelected(true);
         threeDNoRBtn.setText("No");
+        threeDNoRBtn.setActionCommand("No");
 
         contactLbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         contactLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -478,7 +475,7 @@ public class main_gui extends javax.swing.JFrame {
                     .addComponent(idFld, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameFld, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(contactFld))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(parkingLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(threedLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -543,12 +540,21 @@ public class main_gui extends javax.swing.JFrame {
                     .addComponent(switchToViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 91, Short.MAX_VALUE))
+                .addGap(0, 32, Short.MAX_VALUE))
         );
 
         mainPanel.add(addPanel, "editcard");
 
         fileMenu.setText("File");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem1.setText("Open");
+        fileMenu.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem2.setText("Exit");
+        fileMenu.add(jMenuItem2);
+
         menuBar.add(fileMenu);
 
         editMenu.setText("Edit");
@@ -588,11 +594,11 @@ public class main_gui extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 951, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
         );
 
         pack();
@@ -630,23 +636,32 @@ public class main_gui extends javax.swing.JFrame {
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         int rowCount = table.getRowCount();
         ArrayList<Object[]> tableData = getTableData();
-        int[] idArray = new int[rowCount];
-        Object[] nameArray = new Object[rowCount];
-        Object[] contactArray = new Object[rowCount];
-        Object[] addressArray = new Object[rowCount];
-        Object[] ticketPriceArray = new Object[rowCount];
+        MergeSort.sort(tableData);
+        int[] ticketPriceArray = new int[rowCount];
         String searchedData = searchFld.getText();
-        for(int i = 0; i < rowCount; i++) {
-            idArray[i] = (int) tableData.get(i)[0];
-            nameArray[i] = tableData.get(i)[1];
-            addressArray[i] = tableData.get(i)[2];
-            contactArray[i] = tableData.get(i)[3];            
-            ticketPriceArray[i] = tableData.get(i)[6];
-            i++;
+        for (int i = 0; i < rowCount; i++) {
+            ticketPriceArray[i] = (int) tableData.get(i)[6];
         }
-        MergeSort.sort(idArray);
-        int index = BinarySearch.search(idArray, 0, idArray.length - 1, Integer.parseInt(searchedData));
-        System.out.println(index);
+        int index;
+        try {
+            index = BinarySearch.search(ticketPriceArray, 0, ticketPriceArray.length - 1, Integer.parseInt(searchedData));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, "Please enter numerical value for the ticket price", "Datatype ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        /**
+         * try { int ticketPrice = Integer.parseInt(searchedData); index =
+         * BinarySearch.search(ticketPriceArray, 0, ticketPriceArray.length - 1,
+         * Integer.parseInt(searchedData)); } catch (NumberFormatException e) {
+         * index = BinarySearch.search(nameArray, 0, nameArray.length - 1,
+         * searchedData); }*
+         */
+        if (index >= 0) {
+            String toDisplay = searchedData + " is the ticket price for " + tableData.get(index)[1];
+            JOptionPane.showMessageDialog(rootPane, toDisplay, "Match FOUND", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "No records match the searched ticket price.", "Match NOT FOUND", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void sortComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBoxActionPerformed
@@ -680,35 +695,35 @@ public class main_gui extends javax.swing.JFrame {
             String fieldCheck = updateField.toLowerCase();
             if ("cinema id".equals(fieldCheck) || "name".equals(fieldCheck) || "address".equals(fieldCheck) || "contact".equals(fieldCheck) || "parking".equals(fieldCheck) || "3d support".equals(fieldCheck) || "ticket price".equals(fieldCheck)) {
                 String updateValue = JOptionPane.showInputDialog("Enter new data for " + updateField.toUpperCase());
-                
+
                 if (updateValue == null && updateValue.length() == 0) {
                     JOptionPane.showMessageDialog(rootPane, "Field cannot be empty!");
                     return;
                 }
-                
+
                 DefaultTableModel rowUpdate = (DefaultTableModel) table.getModel();
                 for (int i = 0; i < 7; i++) {
                     String header = table.getColumnName(i);
-                    
+
                     if (fieldCheck.equals(header.toLowerCase())) {
                         try {
-                            if(i == 0) {
+                            if (i == 0) {
                                 int cinemaID = Integer.parseInt(updateValue);
                                 rowUpdate.setValueAt(cinemaID, activeRow, i);
                             } else if (i == 3) {
-                                int contact = Integer.parseInt(updateValue);
-                                rowUpdate.setValueAt(contact, activeRow, i);
+                                Long.parseLong(updateValue);
+                                rowUpdate.setValueAt(updateValue, activeRow, i);
                             } else if (i == 6) {
-                                float ticketPrice = Float.parseFloat(updateValue);
+                                int ticketPrice = Integer.parseInt(updateValue);
                                 rowUpdate.setValueAt(ticketPrice, activeRow, i);
                             } else {
                                 rowUpdate.setValueAt(updateValue, activeRow, i);
-                            }                   
+                            }
                         } catch (NumberFormatException e) {
                             JOptionPane.showMessageDialog(rootPane, "Cinema ID, Contact and Ticket Price take numerical values!", "Wrong Input!", JOptionPane.ERROR_MESSAGE);
                             return;
                         }
-                        
+
                         check = JOptionPane.showInputDialog("Do you want to update more fields? (Y/N)");
                         if ("n".equals(check.toLowerCase())) {
                             return;
@@ -736,69 +751,67 @@ public class main_gui extends javax.swing.JFrame {
     }//GEN-LAST:event_switchToViewBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        int id, contact;
-        float price;
+        int id, price;
         boolean emptyRow = false;
-        
+        String idFldText, nameFldText, addressFldText, contactFldText, parkingText, threeDText, ticketPriceFldText;
+
+        idFldText = idFld.getText();
+        nameFldText = nameFld.getText();
+        addressFldText = addressFld.getText();
+        contactFldText = contactFld.getText();
+        parkingText = parkingBtnGrp.getSelection().getActionCommand();
+        threeDText = threeDBtnGrp.getSelection().getActionCommand();
+        ticketPriceFldText = ticketPriceFld.getText();
+
+        if ((idFldText == null || idFldText.isEmpty()) && (nameFldText == null || nameFldText.isEmpty()) && (addressFldText == null || addressFldText.isEmpty()) && (contactFldText == null || contactFldText.isEmpty()) && (parkingText == null || parkingText.isEmpty()) && (threeDText == null || threeDText.isEmpty()) && (ticketPriceFldText == null || ticketPriceFldText.isEmpty())) {
+            JOptionPane.showMessageDialog(rootPane, "Please enter string or numerical value accoring to the field.", "Null/Empty Value Found!", JOptionPane.ERROR_MESSAGE);
+        }
+
         try {
             id = Integer.parseInt(idFld.getText());
-            contact = Integer.parseInt(contactFld.getText());
-            price = Float.parseFloat(ticketPriceFld.getText());
-            
-            String[] data = {idFld.getText(), nameFld.getText(), addressFld.getText(), contactFld.getText(), ticketPriceFld.getText()};
-            DefaultTableModel newEntry = (DefaultTableModel) table.getModel();            
-            for (int i = 0; i < 5; i++) {
-                if (data[i] == null || data[i].length() == 0) {
-                    JOptionPane.showMessageDialog(rootPane, "Please enter string or numerical value accoring to the field.", "Null Value Found!", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    int rowCount = table.getRowCount();
-                    int colCount = table.getColumnCount();
-                    int nextRow = 0;
-                    String checkID, checkName;
+            Long.parseLong(contactFldText);
+            price = Integer.parseInt(ticketPriceFld.getText());
 
-                    do {
-                        checkID = (String) table.getValueAt(nextRow, 0);
-                        if (checkID != null && checkID.length() != 0) {
-                            checkName = (String) table.getValueAt(nextRow, 1);
-                            if (data[0].equals(checkID) || data[1].equals(checkName)) {
-                                JOptionPane.showMessageDialog(rootPane, "Cinema ID and name must be unique. Please enter a unique value!", "Duplicate Entry Found!", JOptionPane.ERROR_MESSAGE);
-                                return;
-                            } else {
-                                nextRow++;
-                            }
-                        } else {
-                            emptyRow = true;
-                        }
-                    } while (nextRow < rowCount && !emptyRow);
-
-                    if (nextRow < rowCount) {
-                        for (int j = 0; j < 4; j++) {
-                            newEntry.setValueAt(data[j], nextRow, j);
-                        }
-                        if (parkingYesRBtn.isSelected() == true) {
-                            newEntry.setValueAt("Yes", nextRow, 4);
-                        } else {
-                            newEntry.setValueAt("No", nextRow, 4);
-                        }
-                        
-                        if (threeDYesRBtn.isSelected() == true) {
-                            newEntry.setValueAt("Yes", nextRow, 5);
-                        } else {
-                            newEntry.setValueAt("No", nextRow, 5);
-                        }
-                        newEntry.setValueAt(data[4], nextRow, 6);
-                        
-                    } 
-                    /** ROW COUNT SAKE PAXI KO LAGI FERI RESOLVE GARNA PARXA*/
-                    else {
-                        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
-                        tableModel.addRow(data);
-                    }            
-                    
-                }           
-            }
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane, "Cinema ID, contact an ticket price take numerical value. Please enter accordingly", "Invalid Input Found!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Object[] data = {id, nameFld.getText(), addressFld.getText(), contactFld.getText(), parkingBtnGrp.getSelection().getActionCommand(), threeDBtnGrp.getSelection().getActionCommand(), price};
+        DefaultTableModel newEntry = (DefaultTableModel) table.getModel();
+
+        int rowCount = table.getRowCount();
+        int colCount = table.getColumnCount();
+        int nextRow = 0;
+        String checkName;
+        int checkID;
+
+        if (rowCount == 0) {
+            DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+            tableModel.addRow(data);
+        } else {
+            do {
+                checkID = (int) table.getValueAt(nextRow, 0);
+                checkName = (String) table.getValueAt(nextRow, 1);
+                if (checkName != null && checkName.length() != 0) {
+                    if (data[0].equals(checkID) || data[1].equals(checkName)) {
+                        JOptionPane.showMessageDialog(rootPane, "Cinema ID and name must be unique. Please enter a unique value!", "Duplicate Entry Found!", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    } else {
+                        nextRow++;
+                    }
+                } else {
+                    emptyRow = true;
+                }
+            } while (nextRow < rowCount && !emptyRow);
+
+            if (nextRow < rowCount) {
+                for (int i = 0; i < data.length; i++) {
+                    table.setValueAt(data[i], nextRow, i);
+                }
+            } else {
+                DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+                tableModel.addRow(data);
+            }
         }
     }//GEN-LAST:event_addBtnActionPerformed
 
@@ -815,7 +828,7 @@ public class main_gui extends javax.swing.JFrame {
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void currencyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currencyComboBoxActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_currencyComboBoxActionPerformed
 
     private void putInTable(ArrayList<Object[]> arrayToInsert) {
@@ -839,8 +852,12 @@ public class main_gui extends javax.swing.JFrame {
         for (int i = 0; i < rowCount; i++) {
             valueToCheck = (String) table.getValueAt(i, 1);
             for (int j = 0; j < columnCount; j++) {
-                if (!valueToCheck.equals("") || !valueToCheck.isEmpty()) {
-                    rowData[j] = table.getValueAt(i, j);
+                try {
+                    if (!valueToCheck.equals("") || !valueToCheck.isEmpty()) {
+                        rowData[j] = table.getValueAt(i, j);
+                    }
+                } catch (NullPointerException e) {
+                    continue;
                 }
             }
             tableData.add(rowData.clone());

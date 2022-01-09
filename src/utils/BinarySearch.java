@@ -37,5 +37,9 @@ public class BinarySearch {
             return search(searchThis, mid + 1, rIndex, toSearch);
         }
     }
-    
+    public static void main(String[] args) {
+        int[] a = {1,2,3};
+        int i = search(a, 0, a.length-1, 2);
+        System.out.println(i);
+    }
 }
