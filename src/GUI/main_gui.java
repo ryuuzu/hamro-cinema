@@ -7,6 +7,8 @@ package GUI;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import utils.MergeSort;
 
 /**
  *
@@ -43,7 +45,7 @@ public class main_gui extends javax.swing.JFrame {
         parkingChkBox = new javax.swing.JCheckBox();
         filterBtn = new javax.swing.JButton();
         searchFld = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        searchBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         updateBtn = new javax.swing.JButton();
@@ -144,7 +146,7 @@ public class main_gui extends javax.swing.JFrame {
                 .addGroup(indexPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewModeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editModeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         mainPanel.add(indexPanel, "indexcard");
@@ -177,12 +179,12 @@ public class main_gui extends javax.swing.JFrame {
         searchFld.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         searchFld.setForeground(new java.awt.Color(51, 51, 51));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        searchBtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        searchBtn.setForeground(new java.awt.Color(51, 51, 51));
+        searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                searchBtnActionPerformed(evt);
             }
         });
 
@@ -190,24 +192,27 @@ public class main_gui extends javax.swing.JFrame {
         table.setForeground(new java.awt.Color(51, 51, 51));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                { new Integer(101), "Qfx", "Sundhara", "9841752387", "Yes", "Yes",  new Integer(450)},
-                { new Integer(102), "Bigmovies", "Kamalpokhari", "9841236547", "Yes", "No",  new Integer(380)},
-                { new Integer(103), "Fcube", "Chabahil", "9869741258", "No", "Yes",  new Integer(390)},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                { new Integer(101), "Bigmovies", "Kamalpokhari", "9841236547", "Yes", "No",  new Float(380.0)},
+                { new Integer(100), "Qfx", "Sundhara", "9841752387", "Yes", "Yes",  new Float(450.0)},
+                { new Integer(102), "Fcube", "Chabahil", "9869741258", "No", "Yes",  new Float(390.0)}
             },
             new String [] {
                 "Cinema ID", "Name", "Address", "Contact", "Parking", "3D Support", "Ticket Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(table);
@@ -232,7 +237,7 @@ public class main_gui extends javax.swing.JFrame {
 
         sortComboBox.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         sortComboBox.setForeground(new java.awt.Color(255, 255, 255));
-        sortComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Your Value", "Module Code Ascending", "Module Code Descending" }));
+        sortComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Your Value", "Cinema ID Ascending", "Cinema ID Descending" }));
         sortComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortComboBoxActionPerformed(evt);
@@ -285,7 +290,7 @@ public class main_gui extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(searchFld, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(searchBtn)
                 .addGap(26, 26, 26))
             .addGroup(viewPanelLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
@@ -319,7 +324,7 @@ public class main_gui extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
+                    .addComponent(searchBtn)
                     .addComponent(sortLbl)
                     .addComponent(sortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(currencyLbl)
@@ -336,7 +341,7 @@ public class main_gui extends javax.swing.JFrame {
                         .addComponent(threeDChkBox)
                         .addComponent(parkingChkBox)
                         .addComponent(filterBtn)))
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 78, Short.MAX_VALUE))
         );
 
         mainPanel.add(viewPanel, "viewcard");
@@ -414,6 +419,11 @@ public class main_gui extends javax.swing.JFrame {
         addBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         addBtn.setForeground(new java.awt.Color(51, 51, 51));
         addBtn.setText("Add Data");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
 
         switchToViewBtn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         switchToViewBtn.setForeground(new java.awt.Color(51, 51, 51));
@@ -511,7 +521,7 @@ public class main_gui extends javax.swing.JFrame {
                     .addComponent(switchToViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 85, Short.MAX_VALUE))
+                .addGap(0, 91, Short.MAX_VALUE))
         );
 
         mainPanel.add(addPanel, "editcard");
@@ -560,7 +570,7 @@ public class main_gui extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
         );
 
         pack();
@@ -595,66 +605,25 @@ public class main_gui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_filterBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_searchBtnActionPerformed
 
     private void sortComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBoxActionPerformed
         int action = sortComboBox.getSelectedIndex();
 
         if (action == 0) {
-            JOptionPane.showMessageDialog(rootPane, "Please choose acsending or descending sort");
+            JOptionPane.showMessageDialog(rootPane, "Please choose ascending or descending sort");
         } else if (action == 1) {
-            int rowCount = table.getRowCount();
-            int columnCount = table.getColumnCount();
-            String minCodeString, codeString, smallerValue, greaterValue;
-            int minCode, code;
-
-            for (int i = 0; i < rowCount; i++) {
-                minCodeString = (String) table.getValueAt(i, 0);
-                minCode = Integer.parseInt(minCodeString);
-
-                for(int j = 0; j<rowCount; j++) {
-                    codeString = (String) table.getValueAt(j, 0);
-                    code = Integer.parseInt(codeString);
-
-                    if (minCode < code) {
-                        for (int m = 0; m < columnCount; m++) {
-                            smallerValue = (String) table.getValueAt(j, m);
-                            greaterValue = (String) table.getValueAt(i, m);
-                            table.setValueAt(smallerValue, i, m);
-                            table.setValueAt(greaterValue, j, m);
-                        }
-
-                    }
-                }
-            }
+            ArrayList<Object[]> tableData = getTableData();
+            MergeSort.sort(tableData);
+            putInTable(tableData);
             // less than 0 is ascending. mincode.compare(code)
-        } else if(action == 2) {
-            int rowCount = table.getRowCount();
-            int columnCount = table.getColumnCount();
-            String minCodeString, codeString, smallerValue, greaterValue;
-            int minCode, code;
-
-            for (int i = 0; i < rowCount; i++) {
-                minCodeString = (String) table.getValueAt(i, 0);
-                minCode = Integer.parseInt(minCodeString);
-
-                for(int j = 0; j<rowCount; j++) {
-                    codeString = (String) table.getValueAt(j, 0);
-                    code = Integer.parseInt(codeString);
-
-                    if (minCode > code) {
-                        for (int m = 0; m < columnCount; m++) {
-                            smallerValue = (String) table.getValueAt(j, m);
-                            greaterValue = (String) table.getValueAt(i, m);
-                            table.setValueAt(smallerValue, i, m);
-                            table.setValueAt(greaterValue, j, m);
-                        }
-
-                    }
-                }
-            }
+        } else if (action == 2) {
+            ArrayList<Object[]> tableData = getTableData();
+            MergeSort.sort(tableData);
+            MergeSort.reverse(tableData);
+            putInTable(tableData);
         }
     }//GEN-LAST:event_sortComboBoxActionPerformed
 
@@ -689,7 +658,7 @@ public class main_gui extends javax.swing.JFrame {
     }//GEN-LAST:event_updateBtnActionPerformed
 
     private void switchToAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchToAddBtnActionPerformed
-        mainPanelLayout.show(mainPanel,"editcard");
+        mainPanelLayout.show(mainPanel, "editcard");
     }//GEN-LAST:event_switchToAddBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
@@ -699,8 +668,42 @@ public class main_gui extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void switchToViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchToViewBtnActionPerformed
-        mainPanelLayout.show(mainPanel,"viewcard");
+        mainPanelLayout.show(mainPanel, "viewcard");
     }//GEN-LAST:event_switchToViewBtnActionPerformed
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void putInTable(ArrayList<Object[]> arrayToInsert) {
+        int rowCount = table.getRowCount();
+        int columnCount = table.getColumnCount();
+        Object[] array = new Object[7];
+        for (int i = 0; i < rowCount; i++) {
+            array = arrayToInsert.get(i);
+            for (int j = 0; j < columnCount; j++) {
+                table.setValueAt(array[j], i, j);
+            }
+        }
+    }
+
+    private ArrayList getTableData() {
+        int rowCount = table.getRowCount();
+        int columnCount = table.getColumnCount();
+        ArrayList tableData = new ArrayList(rowCount);
+        Object[] rowData = new Object[columnCount];
+        String valueToCheck;
+        for (int i = 0; i < rowCount; i++) {
+            valueToCheck = (String) table.getValueAt(i, 1);
+            for (int j = 0; j < columnCount; j++) {
+                if (!valueToCheck.equals("") || !valueToCheck.isEmpty()) {
+                    rowData[j] = table.getValueAt(i, j);
+                }
+            }
+            tableData.add(rowData.clone());
+        }
+        return tableData;
+    }
 
     /**
      * @param args the command line arguments
@@ -757,7 +760,6 @@ public class main_gui extends javax.swing.JFrame {
     private javax.swing.JTextField idFld;
     private javax.swing.JLabel idLbl;
     private javax.swing.JPanel indexPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel mainHeading;
     private javax.swing.JLabel mainHeading1;
@@ -772,6 +774,7 @@ public class main_gui extends javax.swing.JFrame {
     private javax.swing.JLabel parkingLbl;
     private javax.swing.JRadioButton parkingNoRBtn;
     private javax.swing.JRadioButton parkingYesRBtn;
+    private javax.swing.JButton searchBtn;
     private javax.swing.JTextField searchFld;
     private javax.swing.JComboBox<String> sortComboBox;
     private javax.swing.JLabel sortLbl;

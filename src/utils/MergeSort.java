@@ -4,17 +4,91 @@
  */
 package utils;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author utsav
  */
 public class MergeSort {
+    
+    public static void reverse(int[] array) {
+        int array_copy[] = array.clone();
+        int j = array.length - 1;
+        for (int i = 0; i < array_copy.length; i++) {
+            array[i] = array_copy[j];
+            j -= 1;
+        }
+    }
+    
+    public static void reverse(ArrayList array) {
+        ArrayList array_copy = (ArrayList) array.clone();
+        int j = array.size() - 1;
+        for (int i = 0; i < array_copy.size(); i++) {
+            array.set(i, array_copy.get(j));
+            j -= 1;
+        }
+    }
+    
+    public static void sort(ArrayList<Object[]> sortThis) {
+        // new merge sort for the table data
+        if (sortThis.size() <= 1) {
+            return;
+        }
+        // Separating groups from the array
+        ArrayList<Object[]> group1 = new ArrayList();
+        ArrayList<Object[]> group2 = new ArrayList();
+        int group1_length = sortThis.size() / 2;
+        int group2_length = sortThis.size() - group1_length;
+        // adding to the first group
+        for (int i = 0; i < group1_length; i++) {
+            group1.add(sortThis.get(i));
+        }
+        // adding to the second group
+        for (int i = 0; i < group2_length; i++) {
+            group2.add(sortThis.get(group1_length + i));
+        }
+        
+        sort(group1);
+        sort(group2);
+        merge(group1, group2, sortThis);
+    }
+    
+    public static void merge(ArrayList<Object[]> group1, ArrayList<Object[]> group2, ArrayList<Object[]> sortThis) {
+        // Initializing index counters for each array.
+        int group1_index = 0; // Index for group1
+        int group2_index = 0; // Index for group2
+        int sortThis_index = 0; // Index for sortThis
 
+        // Adding values to the sortThis from group1 and group2
+        while (group1_index < group1.size() && group2_index < group2.size()) {
+            if ((int) group1.get(group1_index)[0] < (int) group2.get(group2_index)[0]) {
+                sortThis.set(sortThis_index, group1.get(group1_index));
+                group1_index++;
+            } else {
+                sortThis.set(sortThis_index, group2.get(group2_index));
+                group2_index++;
+            }
+            sortThis_index++;
+        }
+        // Adding the remaining values from either group1 or group2 array.
+        while (group1_index < group1.size()) {
+            sortThis.set(sortThis_index, group1.get(group1_index));
+            group1_index++;
+            sortThis_index++;
+        }
+        while (group2_index < group2.size()) {
+            sortThis.set(sortThis_index, group2.get(group2_index));
+            group2_index++;
+            sortThis_index++;
+        }
+    }
+    
     public static void sort(int[] sortThis) {
         if (sortThis.length <= 1) {
             return;
         }
-        // Seperating groups from
+        // Seperating groups from the array
         int[] group1 = new int[sortThis.length / 2];
         int[] group2 = new int[sortThis.length - group1.length];
 
@@ -26,12 +100,13 @@ public class MergeSort {
         for (int i = 0; i < group2.length; i++) {
             group2[i] = sortThis[group1.length + i];
         }
-
+        
         sort(group1);
         sort(group2);
         merge(group1, group2, sortThis);
+        
     }
-
+    
     public static void merge(int[] group1, int[] group2, int[] sortThis) {
         // Initializing index counters for each array.
         int group1_index = 0; // Index for group1
@@ -62,5 +137,24 @@ public class MergeSort {
             sortThis_index++;
         }
     }
-
+    
+    public static void main(String[] args) {
+        ArrayList<Object[]> arr = new ArrayList<Object[]>();
+        Object[] a = {100, "Hello"};
+        Object[] b = {105, "Hello"};
+        Object[] c = {101, "Hello"};
+        Object[] d = {106, "Hello"};
+        Object[] e = {50, "Hello"};
+        Object[] f = {124, "Hello"};
+        arr.add(a);
+        arr.add(b);
+        arr.add(c);
+        arr.add(d);
+        arr.add(e);
+        arr.add(f);
+        sort(arr);
+        arr.forEach((z) -> {
+            System.out.println(z[0] + " - " + z[1]);
+        });
+    }
 }

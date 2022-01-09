@@ -86,7 +86,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="mainPanel" alignment="0" pref="541" max="32767" attributes="0"/>
+          <Component id="mainPanel" alignment="0" pref="547" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -146,7 +146,7 @@
                           <Component id="viewModeButton" alignment="3" min="-2" pref="111" max="-2" attributes="0"/>
                           <Component id="editModeButton" alignment="3" min="-2" pref="111" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="109" max="32767" attributes="0"/>
+                      <EmptySpace pref="174" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -224,7 +224,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="searchFld" min="-2" pref="194" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -265,7 +265,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="searchFld" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="searchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="sortLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="sortComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="currencyLbl" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -286,7 +286,7 @@
                               <Component id="filterBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="78" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -350,7 +350,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="searchBtn">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="20" style="1"/>
@@ -361,7 +361,7 @@
                 <Property name="text" type="java.lang.String" value="Search"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchBtnActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -380,69 +380,41 @@
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="7" rowCount="7">
-                        <Column editable="true" title="Cinema ID" type="java.lang.Integer">
+                      <Table columnCount="7" rowCount="3">
+                        <Column editable="false" title="Cinema ID" type="java.lang.Integer">
                           <Data value="101"/>
+                          <Data value="100"/>
                           <Data value="102"/>
-                          <Data value="103"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
                         </Column>
-                        <Column editable="true" title="Name" type="java.lang.String">
-                          <Data value="Qfx"/>
+                        <Column editable="false" title="Name" type="java.lang.String">
                           <Data value="Bigmovies"/>
+                          <Data value="Qfx"/>
                           <Data value="Fcube"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
                         </Column>
-                        <Column editable="true" title="Address" type="java.lang.String">
-                          <Data value="Sundhara"/>
+                        <Column editable="false" title="Address" type="java.lang.String">
                           <Data value="Kamalpokhari"/>
+                          <Data value="Sundhara"/>
                           <Data value="Chabahil"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
                         </Column>
-                        <Column editable="true" title="Contact" type="java.lang.String">
-                          <Data value="9841752387"/>
+                        <Column editable="false" title="Contact" type="java.lang.String">
                           <Data value="9841236547"/>
+                          <Data value="9841752387"/>
                           <Data value="9869741258"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
                         </Column>
-                        <Column editable="true" title="Parking" type="java.lang.String">
+                        <Column editable="false" title="Parking" type="java.lang.String">
                           <Data value="Yes"/>
                           <Data value="Yes"/>
                           <Data value="No"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
                         </Column>
-                        <Column editable="true" title="3D Support" type="java.lang.String">
-                          <Data value="Yes"/>
+                        <Column editable="false" title="3D Support" type="java.lang.String">
                           <Data value="No"/>
                           <Data value="Yes"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
+                          <Data value="Yes"/>
                         </Column>
-                        <Column editable="true" title="Ticket Price" type="java.lang.Integer">
-                          <Data value="450"/>
-                          <Data value="380"/>
-                          <Data value="390"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
+                        <Column editable="false" title="Ticket Price" type="java.lang.Float">
+                          <Data value="380.0"/>
+                          <Data value="450.0"/>
+                          <Data value="390.0"/>
                         </Column>
                       </Table>
                     </Property>
@@ -517,8 +489,8 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
                     <StringItem index="0" value="Choose Your Value"/>
-                    <StringItem index="1" value="Module Code Ascending"/>
-                    <StringItem index="2" value="Module Code Descending"/>
+                    <StringItem index="1" value="Cinema ID Ascending"/>
+                    <StringItem index="2" value="Cinema ID Descending"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -715,7 +687,7 @@
                           <Component id="addBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="clearBtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="85" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="91" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -926,6 +898,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Add Data"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBtnActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="switchToViewBtn">
               <Properties>
