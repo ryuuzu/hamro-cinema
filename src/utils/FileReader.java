@@ -15,27 +15,58 @@ import java.util.Scanner;
  */
 public class FileReader {
 
-    public static ArrayList<String[]> read(String filePath) throws FileNotFoundException {
+    public static ArrayList<Object[]> read(String filePath) throws FileNotFoundException {
         String next;
-        ArrayList<String[]> file_contents = new ArrayList<>();
+        ArrayList<Object[]> file_contents = new ArrayList<>();
         Scanner file = new Scanner(new File(filePath));
         file.useDelimiter(", ");
         while (file.hasNextLine()) {
             next = file.nextLine();
             String[] data = next.split(", ");
-            file_contents.add(data);
+            Object[] new_data = new Object[data.length];
+            new_data[0] = Integer.parseInt(data[0]);
+            new_data[1] = data[1];
+            new_data[2] = data[2];
+            new_data[3] = Long.parseLong(data[3]);
+            new_data[4] = data[4];
+            new_data[5] = data[5];
+            new_data[6] = Float.parseFloat(data[6]);
+            file_contents.add(new_data);
+        }
+        return file_contents;
+    }
+
+    public static ArrayList<Object[]> read(File file_to_read) throws FileNotFoundException {
+        String next;
+        ArrayList<Object[]> file_contents = new ArrayList<>();
+        Scanner file = new Scanner(file_to_read);
+        file.useDelimiter(", ");
+        while (file.hasNextLine()) {
+            next = file.nextLine();
+            String[] data = next.split(", ");
+            Object[] new_data = new Object[data.length];
+            new_data[0] = Integer.parseInt(data[0]);
+            new_data[1] = data[1];
+            new_data[2] = data[2];
+            new_data[3] = Long.parseLong(data[3]);
+            new_data[4] = data[4];
+            new_data[5] = data[5];
+            new_data[6] = Float.parseFloat(data[6]);
+            file_contents.add(new_data);
         }
         return file_contents;
     }
 
     public static void main(String[] args) {
         try {
-            ArrayList<String[]> contents = read("G:\\Repositories\\HamroCinema\\src\\resources\\kathmandu.csv");
-            for (String[] data : contents) {
+            ArrayList<Object[]> contents = read("G:\\hamro-cinema\\src\\resources\\kathmandu.csv");
+            for (Object[] data : contents) {
                 System.out.println(data.length);
-                for (String datum : data) {
+                System.out.println("==============================");
+                for (Object datum : data) {
                     System.out.println(datum);
                 }
+                System.out.println("------------------------------");
             }
             System.out.println(contents.size());
         } catch (FileNotFoundException e) {

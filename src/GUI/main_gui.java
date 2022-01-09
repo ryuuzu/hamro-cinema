@@ -4,13 +4,17 @@
  */
 package GUI;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import utils.MergeSort;
 import utils.BinarySearch;
+import utils.FileReader;
 
 /**
  *
@@ -86,8 +90,8 @@ public class main_gui extends javax.swing.JFrame {
         clearBtn = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        openMenuItem = new javax.swing.JMenuItem();
+        ExitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         navigateMenu = new javax.swing.JMenu();
         homeMenuItem = new javax.swing.JMenuItem();
@@ -554,17 +558,27 @@ public class main_gui extends javax.swing.JFrame {
 
         fileMenu.setText("File");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("Open");
-        fileMenu.add(jMenuItem1);
+        openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        openMenuItem.setText("Open");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(openMenuItem);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("Exit");
-        fileMenu.add(jMenuItem2);
+        ExitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        ExitMenuItem.setText("Exit");
+        ExitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(ExitMenuItem);
 
         menuBar.add(fileMenu);
 
-        editMenu.setText("Edit");
+        editMenu.setText("Help");
         menuBar.add(editMenu);
 
         navigateMenu.setText("Navigate");
@@ -610,6 +624,45 @@ public class main_gui extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        // TODO add your handling code here:
+        JFileChooser openFile = new JFileChooser();
+        ArrayList<Object[]> lines = new ArrayList();
+        int status = openFile.showOpenDialog(rootPane);
+
+        if (status == JFileChooser.APPROVE_OPTION) {
+            File file = openFile.getSelectedFile();
+            try {
+                lines = FileReader.read(file);
+            } catch (FileNotFoundException e) {
+                JOptionPane.showMessageDialog(rootPane, "Please make sure that the file exists!", "File NOT FOUND", JOptionPane.ERROR_MESSAGE);
+            }
+            insertNewData(lines);
+        } else {
+            return;
+        }
+    }//GEN-LAST:event_openMenuItemActionPerformed
+
+    private void insertNewData(ArrayList<Object[]> data) {
+        clearTable();
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+        data.forEach((row) -> {
+            tableModel.addRow(row);
+        });
+    }
+
+    private void clearTable() {
+        DefaultTableModel rowDeletion = (DefaultTableModel) table.getModel();
+        for (int i = 0; i <= table.getRowCount()+1; i++) {
+            rowDeletion.removeRow(0);
+        }
+    }
+
+    private void ExitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMenuItemActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_ExitMenuItemActionPerformed
 
     private void viewModeButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_viewModeButtonActionPerformed
         // TODO add your handling code here:
@@ -1004,6 +1057,7 @@ public class main_gui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ExitMenuItem;
     private javax.swing.JButton addBtn;
     private javax.swing.JPanel addPanel;
     private javax.swing.JTextField addressFld;
@@ -1023,8 +1077,6 @@ public class main_gui extends javax.swing.JFrame {
     private javax.swing.JTextField idFld;
     private javax.swing.JLabel idLbl;
     private javax.swing.JPanel indexPanel;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel mainHeading;
     private javax.swing.JLabel mainHeading1;
@@ -1034,6 +1086,7 @@ public class main_gui extends javax.swing.JFrame {
     private javax.swing.JTextField nameFld;
     private javax.swing.JLabel nameLbl;
     private javax.swing.JMenu navigateMenu;
+    private javax.swing.JMenuItem openMenuItem;
     private javax.swing.ButtonGroup parkingBtnGrp;
     private javax.swing.JCheckBox parkingChkBox;
     private javax.swing.JLabel parkingLbl;
