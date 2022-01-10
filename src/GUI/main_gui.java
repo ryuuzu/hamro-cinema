@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
@@ -179,7 +180,21 @@ public class main_gui extends javax.swing.JFrame {
         });
 
         searchFld.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        searchFld.setForeground(new java.awt.Color(51, 51, 51));
+        searchFld.setForeground(new java.awt.Color(204, 204, 204));
+        searchFld.setText("Search Ticket Price");
+        searchFld.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchFldMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                searchFldMouseReleased(evt);
+            }
+        });
+        searchFld.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchFldActionPerformed(evt);
+            }
+        });
 
         searchBtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         searchBtn.setForeground(new java.awt.Color(51, 51, 51));
@@ -830,6 +845,19 @@ public class main_gui extends javax.swing.JFrame {
     private void currencyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currencyComboBoxActionPerformed
         
     }//GEN-LAST:event_currencyComboBoxActionPerformed
+
+    private void searchFldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchFldMouseClicked
+        searchFld.setText("");
+        searchFld.setForeground(Color.BLACK);
+    }//GEN-LAST:event_searchFldMouseClicked
+
+    private void searchFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFldActionPerformed
+        
+    }//GEN-LAST:event_searchFldActionPerformed
+
+    private void searchFldMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchFldMouseReleased
+        
+    }//GEN-LAST:event_searchFldMouseReleased
 
     private void putInTable(ArrayList<Object[]> arrayToInsert) {
         int rowCount = table.getRowCount();
