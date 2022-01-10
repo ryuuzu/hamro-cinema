@@ -740,12 +740,12 @@ public class main_gui extends javax.swing.JFrame {
             if (iter.hasNext()) {
                 Object[] options = {"Close", "Next"};
                 option = JOptionPane.showOptionDialog(rootPane, displayText,
-                        "Academic Course Details", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                        "Filter Search Details", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,
                         null, options, options[0]);
             } else {
                 Object[] options = {"Close"};
                 option = JOptionPane.showOptionDialog(rootPane, displayText,
-                        "Academic Course Details", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+                        "Filter Search Details", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
                         options, options[0]);
             }
             if (option == 0) {
@@ -931,7 +931,7 @@ public class main_gui extends javax.swing.JFrame {
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(rootPane,
-                    "Cinema ID, contact an ticket price take numerical value. Please enter accordingly",
+                    "Cinema ID, contact and ticket price take numerical value. Please enter accordingly",
                     "Invalid Input Found!", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -949,6 +949,7 @@ public class main_gui extends javax.swing.JFrame {
         if (rowCount == 0) {
             DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
             tableModel.addRow(data);
+            JOptionPane.showMessageDialog(rootPane, data[1] + " cinema with ID " + data[0] + " has been added to the system.", "Cinema Added Successfully", JOptionPane.INFORMATION_MESSAGE);
         } else {
             do {
                 checkID = (int) table.getValueAt(nextRow, 0);
@@ -971,9 +972,11 @@ public class main_gui extends javax.swing.JFrame {
                 for (int i = 0; i < data.length; i++) {
                     table.setValueAt(data[i], nextRow, i);
                 }
+                JOptionPane.showMessageDialog(rootPane, data[1] + " cinema with ID " + data[0] + " has been added to the system.", "Cinema Added Successfully", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
                 tableModel.addRow(data);
+                JOptionPane.showMessageDialog(rootPane, data[1] + " cinema with ID " + data[0] + " has been added to the system.", "Cinema Added Successfully", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }// GEN-LAST:event_addBtnActionPerformed
