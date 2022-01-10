@@ -4,8 +4,11 @@
  */
 package GUI;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -92,7 +95,8 @@ public class main_gui extends javax.swing.JFrame {
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
         ExitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
+        helpMenu = new javax.swing.JMenu();
+        helpGuideMenuItem = new javax.swing.JMenuItem();
         navigateMenu = new javax.swing.JMenu();
         homeMenuItem = new javax.swing.JMenuItem();
         viewModeMenuItem = new javax.swing.JMenuItem();
@@ -190,7 +194,7 @@ public class main_gui extends javax.swing.JFrame {
         });
 
         searchFld.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        searchFld.setForeground(new java.awt.Color(51, 51, 51));
+        searchFld.setForeground(new java.awt.Color(0, 0, 0));
 
         searchBtn.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         searchBtn.setForeground(new java.awt.Color(51, 51, 51));
@@ -578,8 +582,17 @@ public class main_gui extends javax.swing.JFrame {
 
         menuBar.add(fileMenu);
 
-        editMenu.setText("Help");
-        menuBar.add(editMenu);
+        helpMenu.setText("Help");
+
+        helpGuideMenuItem.setText("Show Help Guide");
+        helpGuideMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpGuideMenuItemActionPerformed(evt);
+            }
+        });
+        helpMenu.add(helpGuideMenuItem);
+
+        menuBar.add(helpMenu);
 
         navigateMenu.setText("Navigate");
 
@@ -663,6 +676,18 @@ public class main_gui extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitMenuItemActionPerformed
+
+    private void helpGuideMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpGuideMenuItemActionPerformed
+        // TODO add your handling code here:try {
+        try {
+            File helpfile = new File("src\\res\\Help_Guide.pdf");
+            Desktop.getDesktop().open(helpfile);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Help File Not Found.");
+        } catch (IOException e) {
+            System.out.println("File cannot be opened");
+        }
+    }//GEN-LAST:event_helpGuideMenuItemActionPerformed
 
     private void viewModeButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_viewModeButtonActionPerformed
         // TODO add your handling code here:
@@ -1089,11 +1114,12 @@ public class main_gui extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> currencyComboBox;
     private javax.swing.JLabel currencyLbl;
     private javax.swing.JButton deleteBtn;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JButton editModeButton;
     private javax.swing.JMenuItem editModeMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JButton filterBtn;
+    private javax.swing.JMenuItem helpGuideMenuItem;
+    private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem homeMenuItem;
     private javax.swing.JTextField idFld;
     private javax.swing.JLabel idLbl;
