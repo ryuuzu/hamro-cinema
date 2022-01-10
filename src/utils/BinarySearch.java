@@ -43,7 +43,7 @@ public class BinarySearch {
             return -1;
         }
         int mid = (lIndex + rIndex) / 2;
-        if (toSearch == searchThis[mid]) {
+        if (toSearch.equals(searchThis[mid])) {
             return mid;
         } else if (toSearch.compareTo(searchThis[mid]) < 0) {
             return search(searchThis, lIndex, mid - 1, toSearch);
@@ -53,8 +53,8 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 2, 3};
-        int i = search(a, 0, a.length - 1, 2);
+        String[] a = {"Bigmovies", "Fcube", "Qfx"};
+        int i = search(a, 0, a.length - 1, "Qfx");
         System.out.println(i);
     }
 }

@@ -251,7 +251,7 @@ public class main_gui extends javax.swing.JFrame {
 
         sortComboBox.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         sortComboBox.setForeground(new java.awt.Color(255, 255, 255));
-        sortComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Your Value", "Ticket Price Ascending", "Ticket Price Descending" }));
+        sortComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Your Value", "Ticket Price Ascending", "Ticket Price Descending", "Cinema Name Ascending", "Cinema Name Descending" }));
         sortComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortComboBoxActionPerformed(evt);
@@ -654,7 +654,7 @@ public class main_gui extends javax.swing.JFrame {
 
     private void clearTable() {
         DefaultTableModel rowDeletion = (DefaultTableModel) table.getModel();
-        for (int i = 0; i <= table.getRowCount()+1; i++) {
+        for (int i = 0; i <= table.getRowCount() + 1; i++) {
             rowDeletion.removeRow(0);
         }
     }
@@ -726,7 +726,7 @@ public class main_gui extends javax.swing.JFrame {
         // Running the loop as long as the iterator has a next value to process.
         while (iter.hasNext()) {
             Object[] data = iter.next();
-            String displayText = "Filtered Results:\n";
+            String displayText = "Filtered Results (" + filteredData.size() + " Cinemas Found):\n";
             displayText += "Cinema ID: " + data[0] + "\n";
             displayText += "Cinema Name: " + data[1] + "\n";
             displayText += "Address: " + data[2] + "\n";
@@ -761,7 +761,7 @@ public class main_gui extends javax.swing.JFrame {
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchBtnActionPerformed
         int rowCount = table.getRowCount();
         ArrayList<Object[]> tableData = getTableData();
-        MergeSort.sort(tableData);
+        MergeSort.sort(tableData, true);
         float[] ticketPriceArray = new float[rowCount];
         String searchedData = searchFld.getText();
         for (int i = 0; i < rowCount; i++) {
@@ -776,12 +776,21 @@ public class main_gui extends javax.swing.JFrame {
                     "Datatype ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        /**
-         * try { int ticketPrice = Integer.parseInt(searchedData); index =
-         * BinarySearch.search(ticketPriceArray, 0, ticketPriceArray.length - 1,
-         * Integer.parseInt(searchedData)); } catch (NumberFormatException e) {
-         * index = BinarySearch.search(nameArray, 0, nameArray.length - 1,
-         * searchedData); }*
+        /*
+         try {
+            index = BinarySearch.search(ticketPriceArray, 0, ticketPriceArray.length - 1, Float.parseFloat(searchedData));
+            if (index >= 0) {
+                toDisplay = searchedData + " is the ticket price for " + tableData.get(index)[1];
+            }
+        } catch (NumberFormatException e) {
+            MergeSort.sort(tableData, false);
+            for (int i = 0; i < rowCount; i++) {
+                nameArray[i] = (String) tableData.get(i)[1];
+            }
+            index = BinarySearch.search(nameArray, 0, nameArray.length - 1, searchedData);
+            if (index >= 0) {
+                toDisplay = searchedData + " is found in Cinema ID " + tableData.get(index)[0];
+            }
          */
         if (index >= 0) {
             String toDisplay = searchedData + " is the ticket price for " + tableData.get(index)[1];
@@ -799,12 +808,21 @@ public class main_gui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Please choose ascending or descending sort");
         } else if (action == 1) {
             ArrayList<Object[]> tableData = getTableData();
-            MergeSort.sort(tableData);
+            MergeSort.sort(tableData, true);
             putInTable(tableData);
             // less than 0 is ascending. mincode.compare(code)
         } else if (action == 2) {
             ArrayList<Object[]> tableData = getTableData();
-            MergeSort.sort(tableData);
+            MergeSort.sort(tableData, true);
+            MergeSort.reverse(tableData);
+            putInTable(tableData);
+        } else if (action == 3) {
+            ArrayList<Object[]> tableData = getTableData();
+            MergeSort.sort(tableData, false);
+            putInTable(tableData);
+        } else if (action == 4) {
+            ArrayList<Object[]> tableData = getTableData();
+            MergeSort.sort(tableData, false);
             MergeSort.reverse(tableData);
             putInTable(tableData);
         }

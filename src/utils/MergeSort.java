@@ -30,7 +30,7 @@ public class MergeSort {
         }
     }
 
-    public static void sort(ArrayList<Object[]> sortThis) {
+    public static void sort(ArrayList<Object[]> sortThis, boolean sortOnTicketPrice) {
         // new merge sort for the table data
         if (sortThis.size() <= 1) {
             return;
@@ -49,9 +49,43 @@ public class MergeSort {
             group2.add(sortThis.get(group1_length + i));
         }
 
-        sort(group1);
-        sort(group2);
-        merge(group1, group2, sortThis);
+        sort(group1, sortOnTicketPrice);
+        sort(group2, sortOnTicketPrice);
+        if (sortOnTicketPrice) {
+            merge(group1, group2, sortThis);
+        } else {
+            mergeOnName(group1, group2, sortThis);
+        }
+    }
+
+    public static void mergeOnName(ArrayList<Object[]> group1, ArrayList<Object[]> group2, ArrayList<Object[]> sortThis) {
+        // Initializing index counters for each array.
+        int group1_index = 0; // Index for group1
+        int group2_index = 0; // Index for group2
+        int sortThis_index = 0; // Index for sortThis
+
+        // Adding values to the sortThis from group1 and group2
+        while (group1_index < group1.size() && group2_index < group2.size()) {
+            if (((String) group1.get(group1_index)[1]).toUpperCase().compareTo(((String) group2.get(group2_index)[1]).toUpperCase()) < 0) {
+                sortThis.set(sortThis_index, group1.get(group1_index));
+                group1_index++;
+            } else {
+                sortThis.set(sortThis_index, group2.get(group2_index));
+                group2_index++;
+            }
+            sortThis_index++;
+        }
+        // Adding the remaining values from either group1 or group2 array.
+        while (group1_index < group1.size()) {
+            sortThis.set(sortThis_index, group1.get(group1_index));
+            group1_index++;
+            sortThis_index++;
+        }
+        while (group2_index < group2.size()) {
+            sortThis.set(sortThis_index, group2.get(group2_index));
+            group2_index++;
+            sortThis_index++;
+        }
     }
 
     public static void merge(ArrayList<Object[]> group1, ArrayList<Object[]> group2, ArrayList<Object[]> sortThis) {
@@ -206,7 +240,7 @@ public class MergeSort {
         arr.add(d);
         arr.add(e);
         arr.add(f);
-        sort(arr);
+//        sort(arr);
         arr.forEach((z) -> {
             System.out.println(z[0] + " - " + z[1]);
         });
