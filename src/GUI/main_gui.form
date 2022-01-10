@@ -13,27 +13,33 @@
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="openMenuItem">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+O"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Open"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="ExitMenuItem">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+W"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Exit"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="editMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
+            <Property name="text" type="java.lang.String" value="Help"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="navigateMenu">
@@ -432,10 +438,10 @@
                           <Data value="No"/>
                           <Data value="Yes"/>
                         </Column>
-                        <Column editable="false" title="Ticket Price" type="java.lang.Integer">
-                          <Data value="490"/>
-                          <Data value="380"/>
-                          <Data value="500"/>
+                        <Column editable="false" title="Ticket Price" type="java.lang.Float">
+                          <Data value="390.0"/>
+                          <Data value="425.0"/>
+                          <Data value="700.0"/>
                         </Column>
                       </Table>
                     </Property>
@@ -509,10 +515,12 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
+                  <StringArray count="5">
                     <StringItem index="0" value="Choose Your Value"/>
                     <StringItem index="1" value="Ticket Price Ascending"/>
                     <StringItem index="2" value="Ticket Price Descending"/>
+                    <StringItem index="3" value="Cinema Name Ascending"/>
+                    <StringItem index="4" value="Cinema Name Descending"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -584,10 +592,10 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
                     <StringItem index="0" value="Nepali Rupees"/>
-                    <StringItem index="1" value="Indian Rupees"/>
+                    <StringItem index="1" value="Great British Pound"/>
                     <StringItem index="2" value="Japanese Yen"/>
-                    <StringItem index="3" value="American Dollar"/>
-                    <StringItem index="4" value="Great British Pound"/>
+                    <StringItem index="3" value="Australian Dollar"/>
+                    <StringItem index="4" value="Indonesian Rupiah"/>
                   </StringArray>
                 </Property>
               </Properties>
